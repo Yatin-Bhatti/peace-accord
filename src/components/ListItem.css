@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    flex-direction: row;
+}
+#dropdown-item-button{
+    background-color: transparent !important;
+    border:none
+}
+.dropdown-toggle::after {
+    display: none !important; 
+  }

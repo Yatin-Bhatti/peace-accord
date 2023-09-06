@@ -1,0 +1,24 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #2AC1F0; /* Set the background color for the entire page */
+    overflow: hidden; /* Hide overflow from body and html */
+}
+
+.body{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    background-color: #2AC1F0;
+    height:90%;
+    overflow-y: auto;
+}
+.listContainer{
+    margin-top: 70px;
+    width:800px;
+    
+}
+
