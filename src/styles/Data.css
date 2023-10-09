@@ -1,0 +1,25 @@
+.dataContainer{
+    display: flex;
+  justify-content: center; 
+  align-items: center; 
+    background-color: #2ac1f0;
+    height:90vh
+}
+.dataBox{
+    margin-top: -10vh;
+}
+.singleData1,.singleData2,.singleData3,.singleData4{
+    margin-bottom: 30px;
+    color:white;
+    font-size: 32px;
+    font-weight: 400;
+}
+.singleData2{
+    margin-left:-8px
+}
+.singleData3{
+    margin-left:82px
+}
+.singleData4{
+    margin-left:-107px
+}

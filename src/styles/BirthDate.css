@@ -1,0 +1,45 @@
+.birthBody{
+    background-color: #2AC1F0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.birthContainer{
+    display: flex;
+    width: 900px;
+    height:72px
+}
+
+.birthInput{
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:10px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.birthButton{
+    height:59px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.InvalidAlert{
+    margin-left: 20px;
+    margin-top:12px;
+    font-size: 14px;
+    color:#000000;
+    font-weight: 400;
+}

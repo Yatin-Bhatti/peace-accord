@@ -1,0 +1,70 @@
+
+.logBody{
+    background-color: #2AC1F0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inputCustomm{
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:10px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.submitButton{
+    height:78px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.logCont{
+   height:100px;
+    margin-left:-160px;
+}
+.passCont{
+   height:100px
+}
+.inputCustommm{
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:10px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+.submitButtonn{
+    height:78px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.linkStyle{
+    margin-left: -700px;
+    margin-top:-25px;
+    font-size: 14px;
+    font-weight:400;
+}
+.linkStyle a{
+    color:black
+}

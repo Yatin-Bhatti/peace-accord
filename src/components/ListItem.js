@@ -11,18 +11,18 @@ function ListItem({content,votes}) {
     <p>{content}</p>
     <DropdownButton id="dropdown-item-button"  title={
           voteStatus === true ? (
-            <FaCheck color={"black"}/>
+            <FaCheck color={"black"} size={32}/>
           ) : voteStatus === false ? (
-            <FaTimes color={"black"} />
+            <FaTimes color={"black"} size={32} />
           ) : (
-            <PiDotsThreeOutlineVerticalFill color={"black"} />
+            <PiDotsThreeOutlineVerticalFill color={"black"} style={{fontSize:"24px"}}/>
           )
         }
     >
-      <Dropdown.ItemText>{`${votes} Votes`}</Dropdown.ItemText>
-      <Dropdown.ItemText>--------------------</Dropdown.ItemText>
-      <Dropdown.Item as="button" onClick={()=>setVoteStatus(true)}>Vote Yes</Dropdown.Item>
-      <Dropdown.Item as="button" onClick={()=>setVoteStatus(false)}>Vote No</Dropdown.Item>
+      <Dropdown.ItemText style={{fontSize:"32px",color:"#4D4C4C"}}>{`${votes} Votes`}</Dropdown.ItemText>
+      <Dropdown.ItemText style={{fontSize:"32px",color:"#4D4C4C"}}>----------</Dropdown.ItemText>
+      <Dropdown.Item as="button" className="dropButton" onClick={()=>setVoteStatus(true)}>Vote Yes</Dropdown.Item>
+      <Dropdown.Item as="button"  className="dropButton" onClick={()=>setVoteStatus(false)}>Vote No</Dropdown.Item>
     </DropdownButton>
     </div>
   )

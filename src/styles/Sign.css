@@ -1,0 +1,130 @@
+.signBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    background-color: #2AC1F0;
+    height:90%;
+    overflow-y: auto;
+}
+.signCont{
+    width:948px
+}
+/* input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 59px; 
+    height: 59px;
+    background-color: #2AC1F0;
+    border-radius: 5px;
+    cursor: pointer;
+    border-width: 4px;
+    outline:#ffffff
+}
+input[id="check"] + label{
+    border: 4px solid #ffffff;
+}
+input[type="checkbox"]:checked{
+    background-color: black;
+}
+input[type="checkbox"]:checked:after{
+    display: block;
+}
+
+  input[type="checkbox"]:after{
+    content:"\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size:50px;
+    color:white;
+    display: none;
+  }
+  input[type="checkbox"]:hover{
+    background-color: black;
+  }
+label{
+    color:#ffffff;
+    font-size:32px;
+    font-weight: 400;
+    cursor: pointer;
+} */
+input[id="check"] + label {
+    display: inline-block;
+    width: 59px;
+    height: 59px;
+    border: 4px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked + label {
+    background-color: black;
+  }
+  input[id="check"]:checked + label:after {
+    position: relative;
+    top: -12px;
+    
+    content: '\f00c';
+    font-family: "Font Awesome 5 Free";
+    background-color: black;
+    font-size: 50px;
+    font-weight: 900;
+  }
+  input[id="check"] {
+    display: none;
+  }
+  input[id="secondCheck"] + label {
+    display: inline-block;
+    width: 59px;
+    height: 59px;
+    border: 4px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked + label {
+    background-color: black;
+  }
+  input[id="secondCheck"]:checked + label:after {
+    position: relative;
+    top: -12px;
+    
+    content: '\f00c';
+    font-family: "Font Awesome 5 Free";
+    background-color: black;
+    font-size: 50px;
+    font-weight: 900;
+  }
+  input[id="secondCheck"] {
+    display: none;
+  }
+.labelText{
+   
+    font-size: 32px;
+    font-weight: 400;
+}
+.labelBack{
+    margin-left:30px;
+    padding-left: 10px;
+    padding-right:10px;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listContainer{
+    margin-top: 70px;
+    width:948px;
+    font-size: 32px;
+}
+
+
+.signBody::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  .signBody::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }

@@ -1,0 +1,3 @@
+export const SUBMIT_TEXT="SUBMIT_TEXT";
+export const SUBMIT_EMAIL="SUBMIT_EMAIL";
+export const SUBMIT_PASSWORD="SUBMIT_PASSWORD"

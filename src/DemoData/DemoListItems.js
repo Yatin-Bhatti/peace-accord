@@ -2,7 +2,7 @@ export const ListItems = [
   {
     id: 1,
     content:
-      "this is dummy data this is dummy data data this is dummjhjkhkhkjhkhgjhgjhmhgjhgjhgjhgy is dummy data this is dummy data",
+      "this is dummy data this is dummy data data is dummy data this is dummy data",
     numberOfVotes: 25,
   },
   {

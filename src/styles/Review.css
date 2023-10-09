@@ -1,26 +1,34 @@
-.revBody{
+.rewBody{
     background-color: #2AC1F0;
     height: 90vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-.revContainer{
-    height:600px;
-    width:900px;
-   display: flex;
-   flex-direction: row;
+.textContainerr{
+    word-wrap: break-word;
+  color:#ffffff;
+  font-size: 32px;
+  font-weight:400;
+    margin-bottom: 30px;
+    max-height:400px;
+    overflow-y:auto ;
 }
-.inputDiv{
-    margin-top: 200px;
+
+.allCont{
+    margin-top:-120px;
+    width:800px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left:-200px; */
+   
 }
-
-.submitButton{
-    height:78px;
-    width:140px;
+.rewButton{
+    height:59px;
+    width:110px;
     color:white;
     font-size:30px;
     font-family: 'Montserrat', sans-serif;
@@ -30,23 +38,10 @@
     margin-left: 20px;
 }
 
-.inputCustom{
-    width:700px;
-    height:59px;
-    border-radius: 5px;
-    border-width: 0px;
-    padding:10px 20px 10px 20px;
-    resize: none;
-    outline:none;
-    font-size: 40px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-
-.inputCustom::-webkit-scrollbar{
-    width:0px
-}
-
-.submitButton{
- margin-top: 200px;
-}
+.textContainerr::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  .textContainerr::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }

@@ -10,7 +10,7 @@ function List() {
     {ListItems.map((item,index)=>{
       return(
         <div style={{display:"flex",margin:"20px"}}>
-        <div>{`${index+1}.`}</div>
+        <div>{`${index+1}.`}&nbsp;&nbsp;</div>
         <ListItem key={index} content={item.content} votes={item.numberOfVotes}/>
         </div>
       )})}

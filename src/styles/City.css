@@ -1,0 +1,62 @@
+.cityBody{
+    background-color: #2AC1F0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cityContainer{
+
+   display: flex;
+   width: 900px;
+   height:72px
+}
+.cityInput{
+   
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:10px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+.cityButton{
+    
+    height:59px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+ 
+}
+.listContainerr{
+    max-height:242px;
+    overflow-y: auto;
+    margin-left:-100px;
+    margin-top:4px;
+}
+.list{
+    width:700px;
+    background-color: #ffffff;
+    margin-left:-198px;
+    border-radius: 5px;
+    list-style-type: none;
+    font-size: 40px;
+    margin:0;
+    padding:0;
+}
+.listContainer::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  .listContainer::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }

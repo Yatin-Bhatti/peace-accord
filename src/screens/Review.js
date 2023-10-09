@@ -1,35 +1,36 @@
-import React,{useState,useRef,useEffect} from 'react'
+import React from 'react'
 import "../styles/Review.css"
-function Review() {
-  const [text, setText] = useState('');
-  const [wordCount, setWordCount] = useState(0);
-
-  const handleChange = (e) => {
-
-    const input = e.target;
-    input.style.height = ""; 
-    input.style.height = Math.min(input.scrollHeight-25, 200) + 'px';
-    const inputValue = e.target.value;
-    setText(inputValue);
-
-    const words = inputValue.split(' ').filter((word) => word.trim() !== '');
-    setWordCount(words.length);
-
-   
-  };
+import { nextReview } from '../redux'
+import { connect } from 'react-redux'
+function Review(props) {
+    const handleClick=()=>{
+        props.nextReview();
+    }
   return (
-    <div className="revBody">
-    <div className="revContainer">
-    <div className='inputDiv'>
-    <textarea className='inputCustom' value={text} spellCheck="false" onChange={handleChange} maxLength={10000} placeholder="What is required for peace?"/>
-    <p style={{color:"white",fontSize:"14px",width:"700px",textAlign:"end",paddingLeft:"10px"}}>{`${wordCount}/300`}</p>
-    </div>
-    <div className="buttonContainer">
-    <button className='submitButton'>Submit</button>
-    </div>
-    </div>
-    </div>
+    <div className="rewBody">
+        <div className="allCont">
+        <div className="textContainerr">
+        {/* <div>{`${props.counter+1}.`}&nbsp;&nbsp;</div> */}
+      <p> {` ${ props.counter+1}.  ${props.data[props.counter].text}`} </p> 
+        </div>
+        <div className="buttonsContainer">
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Skip</button>
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Yes</button>
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>No</button>
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Edit</button>
+        </div>
+        </div>
+        </div>
   )
 }
-
-export default Review
+const mapStateToProps=state=>{
+    return{
+        counter:state.review.counter
+    }
+}
+const mapDispatchToProps=dispatch=>{
+    return{
+        nextReview:()=>dispatch(nextReview())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Review)

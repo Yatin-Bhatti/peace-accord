@@ -1,0 +1,51 @@
+.nameBody{
+    background-color: #2AC1F0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.firstNameCont{
+    
+   
+    height:200px;
+    width:900px;
+   display: flex;
+   flex-direction: row;
+
+}
+.firstName{
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:10px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button{
+    height:60px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.containerWithMargin{
+    margin-top: -50px;
+}
+.secNameBody{
+    margin-top: -100px;
+    width:900px;
+    height:200px;
+    display: flex;
+    flex-direction: row;
+}

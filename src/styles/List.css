@@ -2,8 +2,8 @@ body,html{
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #2AC1F0; /* Set the background color for the entire page */
-    overflow: hidden; /* Hide overflow from body and html */
+    background-color: #2AC1F0; 
+    overflow: hidden; 
 }
 
 .body{
@@ -17,8 +17,16 @@ body,html{
     overflow-y: auto;
 }
 .listContainer{
+
     margin-top: 70px;
     width:800px;
+    font-size: 32px;
     
 }
-
+.body::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  .body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
