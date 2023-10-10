@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 function Login({ submitEmailLogin, submitPasswordLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [valid,setValid]=useState(true);
   const navigate = useNavigate()
   const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -14,10 +15,13 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     setPassword(e.target.value)
   }
   const handleSubmit = () => {
-    if (email.trim() !== "" && password.trim() !== "") {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
       submitEmailLogin(email);
       submitPasswordLogin(password);
       navigate("/review")
+    } else if(!emailRegex.test(email)){
+      setValid(false)
     }
   }
   return (
@@ -26,7 +30,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
         <input className='inputCustomm' spellCheck="false"
           onChange={handleEmail}
           maxLength={10000} placeholder="Enter Email" />
-
+        {!valid && <p className="InvalidAlert">Please enter a valid email address.</p>}
 
       </div>
       <div className="passCont">

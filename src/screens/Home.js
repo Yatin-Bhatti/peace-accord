@@ -10,6 +10,7 @@ function Home(props) {
   const [valid,setValid]=useState(true);
   const [isFocused, setIsFocused] = useState(true);
   const [counter,setCounter]=useState(0);
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {

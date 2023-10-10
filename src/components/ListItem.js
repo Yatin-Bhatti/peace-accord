@@ -1,11 +1,17 @@
-import React,{useState} from 'react'
+import React,{useState,forwardRef, useImperativeHandle} from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import {PiDotsThreeOutlineVerticalFill} from "react-icons/pi"
 import {FaCheck,FaTimes} from "react-icons/fa"
 import "./ListItem.css"
-function ListItem({content,votes}) {
+const ListItem=forwardRef(({content,votes},ref)=> {
     const [voteStatus,setVoteStatus]=useState()
+    useImperativeHandle(ref,()=>({
+      alterStatus(checkboxState){
+       if(checkboxState!==false) setVoteStatus()
+       else setVoteStatus(!checkboxState)
+      }
+    }))
   return (
     <div className="main">
     <p>{content}</p>
@@ -26,6 +32,6 @@ function ListItem({content,votes}) {
     </DropdownButton>
     </div>
   )
-}
+})
 
 export default ListItem
