@@ -9,7 +9,7 @@ function List() {
     <div className="listContainer">
     {ListItems.map((item,index)=>{
       return(
-        <div style={{display:"flex",margin:"20px"}}>
+        <div style={{display:"flex",margin:"20px"}} key={index}>
         <div>{`${index+1}.`}&nbsp;&nbsp;</div>
         <ListItem key={index} content={item.content} votes={item.numberOfVotes}/>
         </div>

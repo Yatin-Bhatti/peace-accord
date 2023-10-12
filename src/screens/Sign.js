@@ -18,9 +18,9 @@ function Sign() {
       }}>
 
         <input type="checkbox" id="check" />
-        <label for="check"></label>
+        <label htmlFor="check"></label>
         <div className="labelBack">
-        <label className="labelText" for="check">I WANT PEACE FOR ALL HUMANITY</label>
+        <label className="labelText" htmlFor="check">I WANT PEACE FOR ALL HUMANITY</label>
         </div>
       </div>
       <div style={{
@@ -36,9 +36,9 @@ function Sign() {
             }
           });
         }} checked={isCheckboxChecked}/>
-        <label for="secondCheck"></label>
+        <label htmlFor="secondCheck"></label>
         <div className="labelBack" >
-        <label className="labelText" for="secondCheck">IF THE PEACE ACCORD WAS THE FOLLOWING, I WOULD SIGN IT</label>
+        <label className="labelText" htmlFor="secondCheck">IF THE PEACE ACCORD WAS THE FOLLOWING, I WOULD SIGN IT</label>
         </div>
         
       </div>
@@ -49,7 +49,7 @@ function Sign() {
         const listItemRef = React.createRef();
         listItemRefs.current.push(listItemRef);
       return(
-        <div style={{display:"flex",margin:"20px"}}>
+        <div style={{display:"flex",margin:"20px"}} key={index}>
         <div>{`${index+1}.`}&nbsp;&nbsp;</div>
         <ListItem key={index} content={item.content} votes={item.numberOfVotes} ref={listItemRef}/>
         </div>
