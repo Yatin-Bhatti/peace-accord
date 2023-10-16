@@ -23,8 +23,8 @@
     flex-direction: column;
 }
 
-.submitButton{
-    height:78px;
+.submitButtton{
+    height:59px;
     width:140px;
     color:white;
     font-size:30px;
@@ -36,15 +36,19 @@
 }
 
 .inputCustom{
+    
     width:700px;
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:10px 20px 10px 20px;
+    padding:1px 20px 10px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
+}
+.marginButton{
+margin-top:200px
 }
 .mailBody{
     margin-top: -150px;
@@ -63,9 +67,7 @@
  margin-top: 200px;
 }
 
-.registerButton{
-    margin-top:-10px;
-}
+
 
 .InvalidAlert{
     margin-left: 20px;

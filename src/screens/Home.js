@@ -17,7 +17,7 @@ function Home(props) {
 
     const input = e.target;
     input.style.height = ""; 
-    input.style.height = Math.min(input.scrollHeight-25, 200) + 'px';
+    input.style.height = Math.min(input.scrollHeight-12, 200) + 'px';
     const inputValue = e.target.value;
     setText(inputValue);
 
@@ -74,7 +74,7 @@ function Home(props) {
     <p style={{color:"white",fontSize:"14px",width:"700px",textAlign:"end",paddingLeft:"10px"}}>{`${wordCount}/300`}</p>
     </div>
     <div className="buttonContainer">
-    {isFocused&&(<button className='submitButton' 
+    {isFocused&&(<button className='submitButtton marginButton' 
     
     onClick={handleSubmit}
       >Submit</button>)}
@@ -89,7 +89,7 @@ function Home(props) {
     maxLength={10000} placeholder="Enter Email"/>
    {!valid && <p className="InvalidAlert">Please enter a valid email address.</p>}
   </div>
-    <button className="submitButton registerButton" value={email} onClick={handleRegister}>Register</button>
+    <button className="submitButtton " value={email} onClick={handleRegister}>Register</button>
     </div>}
     </div>
   )

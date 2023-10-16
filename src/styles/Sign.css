@@ -6,9 +6,11 @@
     background-color: #2AC1F0;
     height:90%;
     overflow-y: auto;
+    
 }
 .signCont{
-    width:948px
+    width:948px;
+    margin-top:130px
 }
 /* input[type="checkbox"]{
     appearance: none;
