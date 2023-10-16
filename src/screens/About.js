@@ -4,6 +4,7 @@ function About() {
   return (
     <div className="aboutContainer">
       <div className="textContainer">
+        <div className="content">
       <p>WHO?</p>
       <br></br>
       <p>The Peace Accord is for human beings who want peace on earth.</p>
@@ -31,8 +32,7 @@ function About() {
       <br></br>
       <p>Review your favorite entries that you would agree to sign. Don’t worry. You can change this later. </p>
       </div>
- 
-
+      </div>
     </div>
   )
 }
