@@ -38,7 +38,7 @@ function Sign() {
         }} checked={isCheckboxChecked}/>
         <label htmlFor="secondCheck"></label>
         <div className="labelBack" >
-        <label className="labelText" htmlFor="secondCheck">IF THE PEACE ACCORD WAS THE FOLLOWING, I WOULD SIGN IT</label>
+        <label className="labelText moreWidth" htmlFor="secondCheck">IF THE PEACE ACCORD WAS THE FOLLOWING, I WOULD SIGN IT</label>
         </div>
         
       </div>
