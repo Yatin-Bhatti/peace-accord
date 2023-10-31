@@ -23,3 +23,18 @@
 .singleData4{
     margin-left:-107px
 }
+
+@media (max-width: 768px) {
+    .singleData1,.singleData2,.singleData3,.singleData4{
+        font-size: 18px;
+    }
+    .singleData2{
+        margin-left: -4px;
+    }
+    .singleData3{
+        margin-left: 47px;
+    }
+    .singleData4{
+        margin-left: -60px;
+    }
+}

@@ -28,19 +28,19 @@ if(login_password!==""&&Login_email!==""){
         <span></span>
     </div>
         <ul className={menuOpen?"open":""}>
-        <li>
+        <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/review">REVIEW</NavLink>
         </li>
-        <li >
+        <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/list">LIST</NavLink>
         </li>
-        <li >
+        <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/sign">SIGN</NavLink>
         </li>
-        <li >
+        <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/data">DATA</NavLink>
         </li>
-        <li >
+        <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/about">ABOUT</NavLink>
         </li>
         {clickable?<li>
