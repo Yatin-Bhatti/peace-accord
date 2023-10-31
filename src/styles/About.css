@@ -37,7 +37,7 @@
   }
   @media (max-width: 768px) {
     .textContainer{
-      width:400px;
+      width:340px;
       padding:10;
       font-size: 18px;
     }
