@@ -45,12 +45,13 @@ nav ul li a:hover{
 nav .menu{
     display: none;
     position: absolute;
-    top:0.75rem;
+    top:1rem;
     right:0.5rem;
     flex-direction: column;
     justify-content: space-between;
     width:2.25rem;
     height:2rem;
+    
 }
 
 nav .menu span{
