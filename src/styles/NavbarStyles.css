@@ -54,8 +54,8 @@ nav .menu{
 }
 
 nav .menu span{
-    height:0.4rem;
-    width:100%;
+    height:0.3rem;
+    width:95%;
     background-color: #fff;
     border-radius: 0.2rem;
 }
@@ -92,5 +92,8 @@ nav .menu span{
         margin:0.2rem 0.5rem;
         
 
+    }
+    nav .logo{
+        font-size: 24px;
     }
 }
