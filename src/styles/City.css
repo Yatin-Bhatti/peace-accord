@@ -40,7 +40,7 @@
 .listContainerr{
     max-height:242px;
     overflow-y: auto;
-    margin-left:-100px;
+    margin-left:-198px;
     margin-top:4px;
 }
 .list{
@@ -53,10 +53,45 @@
     margin:0;
     padding:0;
 }
-.listContainer::-webkit-scrollbar {
+.listContainerr::-webkit-scrollbar {
     width: 0.5em;
   }
   
-  .listContainer::-webkit-scrollbar-thumb {
+  .listContainerr::-webkit-scrollbar-thumb {
     background-color: transparent;
   }
+
+  @media (max-width: 768px) {
+    .cityContainer{
+        margin-top:-100px;
+        padding: 10px;
+        width:400px;
+        height:auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+    .cityInput{
+        font-size: 18px;
+      height: 39px;
+      width:340px;
+      height: 35px !important;
+    }
+    .cityButton{
+        font-size: 18px;
+        height:35px;
+        width:90px;
+        margin-top:20px;
+    }
+    .list{
+        width:340px;
+        font-size: 18px;
+        
+    }
+    .listContainerr{
+        margin-left: 0px;
+    }
+    .cityButton{
+        margin-left: 0px;
+    }
+}
