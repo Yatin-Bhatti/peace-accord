@@ -40,9 +40,10 @@
       width:340px;
       padding:10;
       font-size: 18px;
-      height:100vh;
+     
     }
-    .aboutContainer{
-      height:100vh;
+    
+    .content{
+      margin-top: 20px;
     }
   }
