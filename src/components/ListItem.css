@@ -16,9 +16,22 @@
     font-size: 32px;
     color:#4D4C4C
   }
+  .votesCount,.seperator{
+    font-size: 32px;
+    color:"#4D4C4C"
+  }
 
   @media (max-width: 768px) {
     .listText{
       font-size: 18px;
     }
+    .dropButton{
+      font-size: 18px;
+      margin-left:23px;
+    }
+    .votesCount,.seperator{
+      font-size: 18px;
+      margin-left:23px;
+    }
+
   }

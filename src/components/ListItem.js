@@ -25,8 +25,9 @@ const ListItem=forwardRef(({content,votes},ref)=> {
           )
         }
     >
-      <Dropdown.ItemText style={{fontSize:"32px",color:"#4D4C4C"}}>{`${votes} Votes`}</Dropdown.ItemText>
-      <Dropdown.ItemText style={{fontSize:"32px",color:"#4D4C4C"}}>----------</Dropdown.ItemText>
+      {/* style={{fontSize:"32px",color:"#4D4C4C"}} */}
+      <Dropdown.ItemText  className="votesCount">{`${votes} Votes`}</Dropdown.ItemText>
+      <Dropdown.ItemText className="seperator">----------</Dropdown.ItemText>
       <Dropdown.Item as="button" className="dropButton" onClick={()=>setVoteStatus(true)}>Vote Yes</Dropdown.Item>
       <Dropdown.Item as="button"  className="dropButton" onClick={()=>setVoteStatus(false)}>Vote No</Dropdown.Item>
     </DropdownButton>
