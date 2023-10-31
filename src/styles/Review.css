@@ -59,6 +59,7 @@
     }
     .textContainerr{
       font-size: 18px;
+      max-height: 280px;
     }
     .allCont{
       width:340px
