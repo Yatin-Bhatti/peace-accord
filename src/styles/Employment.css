@@ -59,3 +59,29 @@
     border-radius: 5px;
     margin-left: 20px;
 }
+
+@media (max-width: 768px) {
+    .employContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -150px;
+    }
+    .customToggle{
+        font-size: 18px;
+        width:340px;
+        height: 35px;
+        padding:13px 10px 10px 10px
+    }
+    .customMenu{
+        font-size: 18px;
+        width:340px;
+    }
+    .employButton{
+        font-size: 18px;
+    height:35px;
+    width:90px;
+    margin-top: 20px;
+    margin-left: 0px;
+    }
+}
