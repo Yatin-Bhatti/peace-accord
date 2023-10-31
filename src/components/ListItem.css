@@ -9,8 +9,16 @@
 .dropdown-toggle::after {
     display: none !important; 
   }
-
+.listText{
+  font-size: 32px;
+}
   .dropButton{
     font-size: 32px;
     color:#4D4C4C
+  }
+
+  @media (max-width: 768px) {
+    .listText{
+      font-size: 18px;
+    }
   }

@@ -16,10 +16,10 @@ body,html{
     height:90%;
     overflow-y: auto;
 }
-.listContainer{
+.listContainerrr{
 
     margin-top: 70px;
-    width:800px;
+    width:1000px;
     font-size: 32px;
     
 }
@@ -29,4 +29,16 @@ body,html{
   
   .body::-webkit-scrollbar-thumb {
     background-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .listContainerrr{
+        width:400px;
+        padding:10px;
+    
+    }
+    .numbering{
+        font-size: 18px;
+        
+    }
   }

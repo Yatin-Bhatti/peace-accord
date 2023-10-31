@@ -14,7 +14,7 @@ const ListItem=forwardRef(({content,votes},ref)=> {
     }))
   return (
     <div className="main">
-    <p>{content}</p>
+    <p className="listText">{content}</p>
     <DropdownButton id="dropdown-item-button"  title={
           voteStatus === true ? (
             <FaCheck color={"black"} size={32}/>

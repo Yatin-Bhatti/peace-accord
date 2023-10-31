@@ -6,11 +6,11 @@ function List() {
   return (
    
     <div className="body">
-    <div className="listContainer">
+    <div className="listContainerrr">
     {ListItems.map((item,index)=>{
       return(
         <div style={{display:"flex",margin:"20px"}} key={index}>
-        <div>{`${index+1}.`}&nbsp;&nbsp;</div>
+        <div className="numbering">{`${index+1}.`}&nbsp;&nbsp;</div>
         <ListItem key={index} content={item.content} votes={item.numberOfVotes}/>
         </div>
       )})}
