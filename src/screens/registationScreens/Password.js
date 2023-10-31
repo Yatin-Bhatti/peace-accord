@@ -12,9 +12,6 @@ function Password({submitPassword}) {
     const handleChange=(e)=>{
         setPassword(e.target.value)
     }
-    const handleSubmit=()=>{
-        console.log("called")
-    }
     const handleClick=()=>{
       if(password.trim()!==""){
         submitPassword(password);

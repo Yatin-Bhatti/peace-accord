@@ -99,14 +99,16 @@ function Home(props) {
         </div>
       </div>
       {props.text !== "" && <div className="mailBody">
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className='mailCont'>
           <textarea className='inputCustom' spellCheck="false"
             onChange={handleEmail}
             onFocus={mailFocus}
             maxLength={10000} placeholder="Enter Email" />
           {!valid && <p className="InvalidAlert">Please enter a valid email address.</p>}
         </div>
-        <button className="submitButtton " value={email} onClick={handleRegister}>Register</button>
+        <div className="buttonContainer">
+        <button className="submitButtton buttonMargin" value={email} onClick={handleRegister}>Register</button>
+        </div>
       </div>}
     </div>
   )
