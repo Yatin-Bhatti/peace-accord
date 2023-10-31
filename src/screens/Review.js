@@ -14,10 +14,14 @@ function Review(props) {
       <p> {` ${ props.counter+1}.  ${props.data[props.counter].text}`} </p> 
         </div>
         <div className="buttonsContainer">
-        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Skip</button>
-        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Yes</button>
+            <div className="setOne">
         <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>No</button>
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Yes</button>
+        </div>
+        <div className="setTwo" >
+        <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Skip</button>
         <button className="rewButton" onClick={handleClick} disabled={props.counter===props.data.length-1}>Edit</button>
+        </div>
         </div>
         </div>
         </div>

@@ -17,7 +17,7 @@
 }
 
 .allCont{
-    margin-top:-60px;
+    
     width:800px;
     display: flex;
     flex-direction: column;
@@ -37,11 +37,38 @@
     border-radius: 5px;
     margin-left: 20px;
 }
-
+.buttonsContainer{
+  display: flex;
+  flex-direction: row;
+  margin-left: -20px;
+}
 .textContainerr::-webkit-scrollbar {
     width: 0.5em;
   }
   
   .textContainerr::-webkit-scrollbar-thumb {
     background-color: transparent;
+  }
+
+
+  @media (max-width: 768px) {
+    .rewButton{
+      font-size: 18px;
+      height:35px;
+      width:90px;
+    }
+    .textContainerr{
+      font-size: 18px;
+    }
+    .allCont{
+      width:340px
+    }
+    .buttonsContainer{
+      display: flex;
+      flex-direction: column;
+    }
+    .setTwo{
+      margin-top: 20px;
+    }
+
   }
