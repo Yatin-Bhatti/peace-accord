@@ -21,7 +21,7 @@ nav .logo{
 
 nav ul{
     display: flex;
-    margin-right:50px;
+    /* margin-right:50px; */
 }
 
 nav ul li{
