@@ -29,7 +29,7 @@ function NewPassword() {
          value={firstField} onChange={firstChange}
          maxLength={10000} placeholder="Enter new password" />
         </div>
-        <div style={{display:"flex",flexDirection:"row"}}>
+        <div className="reInput">
          <input className='newInput' spellCheck="false"
          value={secondField} onChange={secondChange}
           maxLength={10000} placeholder="Enter new password again" />
