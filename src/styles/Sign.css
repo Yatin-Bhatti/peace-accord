@@ -134,13 +134,14 @@ input[id="check"] + label {
   @media (max-width: 768px) {
     .signCont{
       width:340px;
+      padding:10px;
     }
     input[id="check"] + label{
-      width:32px;
+      width:37px;
       height:34px;
     }
     input[id="secondCheck"] + label{
-      width:50px;
+      width:62px;
       height:34px;
     }
     .labelText{
@@ -162,5 +163,6 @@ input[id="check"] + label {
     .listContainer{
       width:340px;
       font-size: 18px;
+      padding:10px;
     }
   }
