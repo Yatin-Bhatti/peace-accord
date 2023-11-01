@@ -136,11 +136,31 @@ input[id="check"] + label {
       width:400px;
     }
     input[id="check"] + label{
-      width:43px;
-      height:30px;
+      width:32px;
+      height:34px;
     }
     input[id="secondCheck"] + label{
-      width:75px;
-      height:30px;
+      width:50px;
+      height:34px;
+    }
+    .labelText{
+      font-size: 18px;
+    }
+    input[id="check"]:checked + label:after{
+      font-size: 18px;
+      top:0px;
+      padding-left: 2px;
+      padding-bottom:2px;
+      
+    }
+    input[id="secondCheck"]:checked + label:after{
+      font-size: 18px;
+      top:0px;
+      padding-left: 2px;
+      padding-bottom:2px;
+    }
+    .listContainer{
+      width:400px;
+    font-size: 18px;
     }
   }
