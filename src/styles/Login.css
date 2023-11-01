@@ -68,3 +68,47 @@
 .linkStyle a{
     color:black
 }
+.InvalidAlertt{
+font-size: 14px;
+margin-top: 12px;
+}
+@media (max-width: 768px) {
+    .logCont{
+        width:380px;
+        padding:10px;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inputCustomm{
+        width:340px;
+        height:35px;
+        font-size: 18px;
+        padding:10px;
+    }
+    .inputCustommm{
+        width:340px;
+        height:35px;
+        font-size: 18px;
+    }
+    .passCont{
+        width:400px;
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .submitButtonn{
+        font-size: 18px;
+        height:35px;
+        width:90px;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+.linkStyle{
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+}

@@ -30,7 +30,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
         <input className='inputCustomm' spellCheck="false"
           onChange={handleEmail}
           maxLength={10000} placeholder="Enter Email" />
-        {!valid && <p className="InvalidAlert">Please enter a valid email address.</p>}
+        {!valid && <p className="InvalidAlertt">Please enter a valid email address.</p>}
 
       </div>
       <div className="passCont">
