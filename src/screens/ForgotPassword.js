@@ -33,7 +33,7 @@ function ForgotPassword() {
           
           
         <button className="forgotSubmit" onClick={handleSubmit} >Submit</button>
-        <div style={{marginLeft:"16px"}}>
+        <div className='invaidCont'>
         {!valid && <p className="invalid" >Please enter a valid email.</p>}
         </div>
         </div>
