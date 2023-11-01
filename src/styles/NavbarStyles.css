@@ -50,7 +50,7 @@ nav .menu{
     flex-direction: column;
     justify-content: space-between;
     width:2.25rem;
-    height:2rem;
+    height:1.8rem;
     
 }
 
@@ -77,13 +77,16 @@ nav .menu span{
         flex-direction: column;
         width:100%;
         margin-bottom: 0.25rem;
+      
+        
         
         
     }
     nav ul.open{
-        display: flex;
-     
-        
+        display: flex; 
+        margin-bottom: 1.5px;
+        margin-left:-10px;
+        background-color: #2AC1F0;
     }
     nav ul li{
         width:100%;

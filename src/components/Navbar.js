@@ -43,7 +43,7 @@ if(login_password!==""&&Login_email!==""){
         <li onClick={()=>setMenuOpen(!menuOpen)} >
           <NavLink to="/about">ABOUT</NavLink>
         </li>
-        {clickable?<li>
+        {clickable?<li  onClick={()=>setMenuOpen(!menuOpen)}>
             <NavLink to="/login">{loginHeading}</NavLink>
         </li>:<li>
             <NavLink>{loginHeading}</NavLink>
