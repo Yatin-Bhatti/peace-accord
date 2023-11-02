@@ -17,7 +17,7 @@ if(login_password!==""&&Login_email!==""){
   return (
     <nav >
       
-    <Link to="/" className="logo" style={{display:"flex",flexDirection:"row"}}>
+    <Link to="/" onClick={()=>setMenuOpen(false)} className="logo" style={{display:"flex",flexDirection:"row"}}>
       <div className="icon">
       <Union/>
       </div>

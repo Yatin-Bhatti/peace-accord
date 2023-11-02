@@ -88,7 +88,9 @@ function Home(props) {
             //  onBlur={handleBlur} 
 
             maxLength={10000} placeholder="What is required for peace?" />
-          <p style={{ color: "white", fontSize: "14px", width: "700px", textAlign: "end", paddingLeft: "10px" }}>{`${wordCount}/300`}</p>
+            <div className="wordStyle">
+          <p >{`${wordCount}/300`}</p>
+          </div>
         </div>
         <div className="buttonContainer">
           {isFocused && (<button className='submitButtton marginButton'

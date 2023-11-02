@@ -79,7 +79,7 @@ input[id="check"] + label {
   }
   input[id="secondCheck"] + label {
     display: inline-block;
-    width: 72px;
+    width: 59px;
     height: 59px;
     border: 4px solid #ffffff;
     border-radius: 5px;
@@ -116,6 +116,17 @@ input[id="check"] + label {
     justify-content: center;
     align-items: center;
 }
+.labelBackSecond{
+  margin-left:30px;
+  padding-left: 10px;
+  padding-right:10px;
+  background-color: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:790px;
+}
 .listContainer{
     margin-top: 70px;
     width:948px;
@@ -141,7 +152,7 @@ input[id="check"] + label {
       height:34px;
     }
     input[id="secondCheck"] + label{
-      width:62px;
+      width:78px;
       height:34px;
     }
     .labelText{

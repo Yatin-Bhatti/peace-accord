@@ -68,8 +68,8 @@ margin-top:200px
 }
 
 .mailCont{
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
 }
 
 .InvalidAlert{
@@ -78,6 +78,17 @@ margin-top:200px
     font-size: 14px;
     color:#000000;
     font-weight: 400;
+}
+
+
+.wordStyle{
+    color:white;
+    font-size: 14px;
+    width:700px;
+    text-align: end;
+    padding-left:10px;
+    margin-top: 3px;
+    margin-left:-10px
 }
 
 /************************* Media Queries*****************************/
@@ -104,10 +115,11 @@ margin-top:200px
         font-size: 18px;
         height:35px;
         width:90px;
+        margin-left: 0;
     }
     .buttonContainer{
-        width:150px;
-        height:150px;
+        width:90px;
+        height:35px;
     }
     .marginButton{
         margin-top: 0px;
@@ -130,5 +142,7 @@ margin-top:200px
     .buttonMargin{
         margin-top: 20px;
     }
-    
+    .wordStyle{
+        width:340px
+    }
   }
