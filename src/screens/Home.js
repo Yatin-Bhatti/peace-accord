@@ -104,12 +104,16 @@ function Home(props) {
         <div className='mailCont'>
           <textarea className='inputCustom' spellCheck="false"
             onChange={handleEmail}
+            onKeyDown={e =>{ if (e.key === 'Enter') {
+              e.preventDefault(); 
+              handleRegister(); 
+            }}}
             onFocus={mailFocus}
             maxLength={10000} placeholder="Enter Email" />
           {!valid && <p className="InvalidAlert">Please enter a valid email address.</p>}
         </div>
         <div className="buttonContainer">
-        <button className="submitButtton buttonMargin" value={email} onClick={handleRegister}>Register</button>
+        <button className="submitButtton buttonMargin" value={email} onClick={handleRegister}  >Register</button>
         </div>
       </div>}
     </div>

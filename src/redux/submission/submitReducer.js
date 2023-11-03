@@ -3,7 +3,8 @@ import { SUBMIT_EMAIL, SUBMIT_PASSWORD, SUBMIT_TEXT } from "./submissionTypes"
 const initialState={
     text:"",
     email:"",
-    password:""
+    password:"",
+  
 }
 
 const submitReducer=(state=initialState,action)=>{

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import "../../styles/BirthDate.css"
-import { connect } from 'react-redux';
+import { connect,useSelector } from 'react-redux';
 import { addBirthDate } from '../../redux';
 import { useNavigate } from 'react-router';
 function BirthDate(props) {
+  const submitData=useSelector((state)=>state.submit);
+    const registerData=useSelector((state)=>state.register);
     const[birthText,setBirthText]=useState("")
     const [valid,setValid]=useState(true);
     const navigate=useNavigate()
@@ -19,11 +21,16 @@ function BirthDate(props) {
       };
 
     const handleAddBirth=()=>{
-        if (isValidBirthdate(birthText)) {
+        if (isValidBirthdate(birthText)&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!=="") {
             props.addBirthDate(birthText);
             navigate("/employment")
-          } else {
+          }
+          else if(!isValidBirthdate(birthText)&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!==""){
             setValid(false)
+          }
+          else {
+            alert("Your registration was interrupted, please enter details before proceeding")
+            navigate("/")
           }
         };
         const birthFocus=()=>{
@@ -34,7 +41,12 @@ function BirthDate(props) {
     <div className="birthBody">
         <div className="birthContainer">
             <div style={{display:"flex",flexDirection:"column"}}>
-        <input className="birthInput" spellCheck="false" value={birthText} placeholder="BIRTH DATE MM/DD/YYYY" onFocus={birthFocus} onChange={handleChange}/>
+        <input className="birthInput" spellCheck="false" value={birthText} placeholder="BIRTH DATE MM/DD/YYYY"
+         onKeyDown={e =>{ if (e.key === 'Enter') {
+          e.preventDefault(); 
+          handleAddBirth(); 
+        }}}
+        onFocus={birthFocus} onChange={handleChange}/>
         {!valid && <p className="InvalidAlert">Please enter a valid birth date.</p>}
         </div>
         <button className="birthButton" onClick={handleAddBirth}>Add</button>

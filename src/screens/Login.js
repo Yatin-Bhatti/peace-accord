@@ -29,6 +29,10 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
       <div className="logCont">
         <input className='inputCustomm' spellCheck="false"
           onChange={handleEmail}
+          onKeyDown={e =>{ if (e.key === 'Enter') {
+            e.preventDefault(); 
+           handleSubmit();
+          }}}
           maxLength={10000} placeholder="Enter Email" />
         {!valid && <p className="InvalidAlertt">Please enter a valid email address.</p>}
 
@@ -36,6 +40,10 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
       <div className="passCont">
         <input className='inputCustommm' spellCheck="false"
           onChange={handlePassword}
+          onKeyDown={e =>{ if (e.key === 'Enter') {
+            e.preventDefault(); 
+            handleSubmit(); 
+          }}}
           maxLength={10000} placeholder="Enter Password" />
         <button className="submitButtonn" value={email} onClick={handleSubmit}>Login</button>
       </div>

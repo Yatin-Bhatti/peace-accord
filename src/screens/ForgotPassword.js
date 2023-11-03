@@ -29,6 +29,10 @@ function ForgotPassword() {
             
         <input className='forgotInput' spellCheck="false"
           onChange={handleChange} value={email}
+          onKeyDown={e =>{ if (e.key === 'Enter') {
+            e.preventDefault(); 
+            handleSubmit(); 
+          }}}
           maxLength={10000} placeholder="Enter email to reset password" />
           
           

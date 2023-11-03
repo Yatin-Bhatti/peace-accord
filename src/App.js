@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
 import Home from "./screens/Home";
 import Data from "./screens/Data";
@@ -20,7 +20,35 @@ import ForgotPassword from "./screens/ForgotPassword";
 import ForgotPasswordNotice from "./screens/ForgotPasswordNotice";
 import store from "./redux/store";
 import NewPassword from "./screens/NewPassword";
+import PrivateRoute from "./screens/PrivatedRoute";
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 function App() {
+  const location=useLocation();
+  useEffect(() => {
+  
+    const confirmUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = 'All the progress will be lost. Are you sure you want to refresh?';
+    };
+
+    if (
+      ['/password', '/name', '/city', '/birthdate', '/employment','/login','newpassword' ].includes(location.pathname)
+    ) {
+      console.log(true)
+      window.addEventListener('beforeunload', confirmUnload);
+    }
+
+   
+    return () => {
+      if (
+        ['/password', '/name', '/city', '/birthdate', '/employment','/login','newpassword'].includes(location.pathname)
+      ) {
+        window.removeEventListener('beforeunload', confirmUnload);
+      }
+    };
+  }, [location]);
+
   return (
     <Provider store={store}>
     <div className="App">
@@ -43,6 +71,7 @@ function App() {
         <Route path="/forgotpasswordnotice" element={<ForgotPasswordNotice/>}/>
         <Route path="/newpassword" element={<NewPassword/>}/>
       </Routes>
+     
     </div>
     </Provider>
   );

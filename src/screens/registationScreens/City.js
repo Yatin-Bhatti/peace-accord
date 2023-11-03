@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import {addCityName} from "../../redux"
 import axios from 'axios';
 import "../../styles/City.css";
-import { connect } from 'react-redux';
+import { connect,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 function City(props) {
     const[searchText,setSearchText]=useState("")
     const[suggestions,setSuggestions]=useState([])
+    const submitData=useSelector((state)=>state.submit);
+    const registerData=useSelector((state)=>state.register);
     const navigate=useNavigate()
     useEffect(()=>{
         const fetchData=async()=>{
@@ -36,15 +38,25 @@ function City(props) {
         setSearchText(text)
     }
     const handleAddCity=()=>{
-        if(searchText.trim()!==""){
+        if(searchText.trim()!==""&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""){
             props.addCityName(searchText)
             navigate("/birthdate")
         }
+          else{
+            alert("Your registration was interrupted, please enter details before proceeding")
+            navigate("/")
+          }
+        
     }
   return (
     <div className="cityBody">
         <div className="cityContainer">
-        <input className="cityInput" spellCheck="false" value={searchText} placeholder="City you live in..." onChange={handleChange}/>
+        <input className="cityInput" spellCheck="false" value={searchText} placeholder="City you live in..."
+         onKeyDown={e =>{ if (e.key === 'Enter') {
+          e.preventDefault(); 
+          handleAddCity(); 
+        }}}
+        onChange={handleChange}/>
         <button className="cityButton" onClick={handleAddCity}>Add</button>
         
         </div>
