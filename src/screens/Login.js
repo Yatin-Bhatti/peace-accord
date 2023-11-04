@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import "../styles/Login.css"
-import { submitEmailLogin, submitPasswordLogin } from '../redux';
+import { submitEmailLogin, submitPasswordLogin,login } from '../redux';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 function Login({ submitEmailLogin, submitPasswordLogin }) {
+  const dispatch=useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [valid,setValid]=useState(true);
@@ -19,6 +21,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
       submitEmailLogin(email);
       submitPasswordLogin(password);
+      dispatch(login());
       navigate("/review")
     } else if(!emailRegex.test(email)){
       setValid(false)
@@ -57,7 +60,8 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
 const mapDispatchToProps = dispatch => {
   return {
     submitEmailLogin: (email) => dispatch(submitEmailLogin(email)),
-    submitPasswordLogin: (password) => dispatch(submitPasswordLogin(password))
+    submitPasswordLogin: (password) => dispatch(submitPasswordLogin(password)),
+    login:()=>dispatch(login())
   }
 }
 

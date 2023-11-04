@@ -21,7 +21,8 @@
     margin-left:82px
 }
 .singleData4{
-    margin-left:-107px,
+    margin-left:-107px;
+    width:600px;
     
 }
 
@@ -57,11 +58,11 @@
         margin-left: 42px;
     }
     .singleData4{
-        margin-left: 29px;
-        width:200px
+        margin-left: 45px;
+        width:300px
     }
     .dataBox{
-        width:320px;
+        width:300px;
         display: flex;
         flex-direction: column;
         align-items: center;

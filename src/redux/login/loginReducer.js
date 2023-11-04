@@ -1,8 +1,9 @@
-import { SUBMIT_LOGIN_EMAIL,SUBMIT_LOGIN_PASSWORD } from "./loginTypes";
+import { SUBMIT_LOGIN_EMAIL,SUBMIT_LOGIN_PASSWORD,LOGIN } from "./loginTypes";
 
 const initialState={
     Login_email:"",
-    Login_password:""
+    Login_password:"",
+    Logged_in:false
 }
 
  const loginReducer=(state=initialState,action)=>{
@@ -14,6 +15,10 @@ const initialState={
         case SUBMIT_LOGIN_PASSWORD:return{
             ...state,
             Login_password:action.payload
+        }
+        case LOGIN:return{
+            ...state,
+            Logged_in:true
         }
         default:return state
     }

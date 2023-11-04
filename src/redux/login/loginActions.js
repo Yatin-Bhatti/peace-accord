@@ -1,4 +1,4 @@
-import { SUBMIT_LOGIN_EMAIL,SUBMIT_LOGIN_PASSWORD } from "./loginTypes";
+import { SUBMIT_LOGIN_EMAIL,SUBMIT_LOGIN_PASSWORD,LOGIN } from "./loginTypes";
 
 export const submitEmailLogin=(email)=>{
     return {
@@ -10,5 +10,10 @@ export const submitPasswordLogin=(password)=>{
     return {
         type:SUBMIT_LOGIN_PASSWORD,
         payload:password
+    }
+}
+export const login=()=>{
+    return{
+        type:LOGIN
     }
 }
