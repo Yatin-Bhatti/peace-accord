@@ -21,7 +21,8 @@
     margin-left:82px
 }
 .singleData4{
-    margin-left:-107px
+    margin-left:-107px,
+    
 }
 
 @media (max-width: 768px) {
@@ -29,13 +30,14 @@
         font-size: 18px;
     }
     .singleData2{
-        padding-left: -4px;
+        margin-left: -52px;
     }
     .singleData3{
-        margin-left: 47px;
+        margin-left: 42px;
     }
     .singleData4{
-        margin-left: -60px;
+        margin-left: 29px;
+        width:200px
     }
     .dataBox{
         width:340px;

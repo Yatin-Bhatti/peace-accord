@@ -8,11 +8,7 @@ function Password({submitPassword}) {
     const[password,setPassword]=useState("")
     const navigate=useNavigate();
     const submitData=useSelector((state)=>state.submit);
- useEffect(()=>{
-  if(submitData.text==""||submitData.email==""){
-    navigate("/")
-  }
- },[])
+ 
  
     const handleFocus=()=>{
         console.log("called")

@@ -21,7 +21,8 @@ import ForgotPasswordNotice from "./screens/ForgotPasswordNotice";
 import store from "./redux/store";
 import NewPassword from "./screens/NewPassword";
 import PrivateRoute from "./screens/PrivatedRoute";
-import { useEffect } from "react";
+import CustomModal from "./components/customModal";
+import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 function App() {
   const location=useLocation();
@@ -30,13 +31,14 @@ function App() {
     const confirmUnload = (e) => {
       e.preventDefault();
       e.returnValue = 'All the progress will be lost. Are you sure you want to refresh?';
+      // showCustomModal();
     };
 
     if (
       ['/password', '/name', '/city', '/birthdate', '/employment','/login','newpassword' ].includes(location.pathname)
     ) {
-      console.log(true)
-      window.addEventListener('beforeunload', confirmUnload);
+      // console.log(true)
+      window.addEventListener('beforeunload', confirmUnload,{capture: true});
     }
 
    
@@ -44,7 +46,7 @@ function App() {
       if (
         ['/password', '/name', '/city', '/birthdate', '/employment','/login','newpassword'].includes(location.pathname)
       ) {
-        window.removeEventListener('beforeunload', confirmUnload);
+        window.removeEventListener('beforeunload', confirmUnload,{capture: true});
       }
     };
   }, [location]);

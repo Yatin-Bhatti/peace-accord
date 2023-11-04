@@ -27,11 +27,19 @@ function NewPassword() {
         <div style={{marginBottom:"30px"}}>
         <input className='newInput' spellCheck="false"
          value={firstField} onChange={firstChange}
+         onKeyDown={e =>{ if (e.key === 'Enter') {
+            e.preventDefault(); 
+            handleSubmit(); 
+          }}}
          maxLength={10000} placeholder="Enter new password" />
         </div>
         <div className="reInput">
          <input className='newInput' spellCheck="false"
          value={secondField} onChange={secondChange}
+         onKeyDown={e =>{ if (e.key === 'Enter') {
+            e.preventDefault(); 
+            handleSubmit(); 
+          }}}
           maxLength={10000} placeholder="Enter new password again" />
           
           
