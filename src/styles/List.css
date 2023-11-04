@@ -42,3 +42,14 @@ body,html{
         
     }
   }
+  @media (max-width: 355px) {
+    .listContainerrr{
+        width:300px;
+        padding:10px;
+    
+    }
+    .numbering{
+        font-size: 16px;
+        
+    }
+  }

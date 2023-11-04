@@ -35,3 +35,16 @@
     }
 
   }
+  @media (max-width: 768px) {
+    .listText{
+      font-size: 16px;
+    }
+    .dropButton{
+      font-size: 16px;
+      margin-left:23px;
+    }
+    .votesCount,.seperator{
+      font-size: 16px;
+      margin-left:23px;
+    }
+  }

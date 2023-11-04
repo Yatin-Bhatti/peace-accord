@@ -153,3 +153,62 @@ margin-top:200px
         width:340px
     }
   }
+  @media (max-width: 355px) {
+    .revContainer {
+        padding: 10px;
+        width:300px;
+        height:auto;
+        margin-top: -80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .inputDiv{
+          width: 270px;
+          margin-top: 0px;
+      }
+      .inputCustom {
+        font-size: 16px;
+        width:270px;
+        height: 32px !important;
+      }
+      .submitButtton{
+          font-size: 16px;
+          height:32px;
+          width:90px;
+          margin-left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .buttonContainer{
+          width:90px;
+          height:32px;
+      }
+      .marginButton{
+          margin-top: 0px;
+      }
+  
+      .mailBody{
+          padding: 10px;
+          width:300px;
+          height:200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 100px;
+      }
+      .mailCont{
+          display: flex;
+          flex-direction: column;
+          
+      }
+      .buttonMargin{
+          margin-top: 20px;
+      }
+      .wordStyle{
+          width:300px;
+          margin-left:-37px;
+          font-size: 12px;
+      }
+  }

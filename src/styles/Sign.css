@@ -177,3 +177,39 @@ input[id="check"] + label {
       padding:10px;
     }
   }
+
+  @media (max-width: 355px) {
+    .signCont{
+      width:250px;
+      padding:10px;
+    }
+    input[id="check"] + label{
+      width:37px;
+      height:32px;
+    }
+    input[id="secondCheck"] + label{
+      width:78px;
+      height:32px;
+    }
+    .labelText{
+      font-size: 16px;
+    }
+    input[id="check"]:checked + label:after{
+      font-size: 16px;
+      top:0px;
+      padding-left: 2px;
+      padding-bottom:2px;
+      
+    }
+    input[id="secondCheck"]:checked + label:after{
+      font-size: 16px;
+      top:0px;
+      padding-left: 2px;
+      padding-bottom:2px;
+    }
+    .listContainer{
+      width:250px;
+      font-size: 16px;
+      padding:10px;
+    }
+  }

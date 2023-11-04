@@ -46,3 +46,24 @@
         align-items: center;
     }
 }
+@media (max-width: 355px) {
+    .singleData1,.singleData2,.singleData3,.singleData4{
+        font-size: 16px;
+    }
+    .singleData2{
+        margin-left: -52px;
+    }
+    .singleData3{
+        margin-left: 42px;
+    }
+    .singleData4{
+        margin-left: 29px;
+        width:200px
+    }
+    .dataBox{
+        width:320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

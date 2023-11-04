@@ -85,3 +85,29 @@
     margin-left: 0px;
     }
 }
+
+@media (max-width: 355px) {
+    .employContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -150px;
+    }
+    .customToggle{
+        font-size: 16px;
+        width:250px;
+        height: 32px;
+        padding:14px 10px 10px 10px
+    }
+    .customMenu{
+        font-size: 16px;
+        width:250px;
+    }
+    .employButton{
+        font-size: 16px;
+    height:32px;
+    width:90px;
+    margin-top: 20px;
+    margin-left: 0px;
+    }
+}

@@ -112,3 +112,43 @@ margin-top: 12px;
 }
 
 }
+@media (max-width: 355px) {
+    .logCont{
+        width:250px;
+        padding:10px;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inputCustomm{
+        width:250px;
+        height:32px;
+        font-size: 16px;
+        padding:10px;
+    }
+    .inputCustommm{
+        width:250px;
+        height:32px;
+        font-size: 16px;
+    }
+    .passCont{
+        width:300px;
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .submitButtonn{
+        font-size: 16px;
+        height:32px;
+        width:90px;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+.linkStyle{
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+}
