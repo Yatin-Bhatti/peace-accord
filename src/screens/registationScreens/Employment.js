@@ -26,7 +26,7 @@ function Employment(props) {
     <div className="employBody" >
         <div className="employContainer">
         <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic" className="customToggle">
+      <Dropdown.Toggle variant="success" id="dropdown-basic" className="customToggle" >
         <p
         className="left-aligned-text"
         >{status}</p> 

@@ -29,6 +29,12 @@
     background-color: #ffffff;
     color:#ACABAB
 }
+
+.btn:first-child:active {
+    background-color: #000000; /* Set the background color on focus (click) to white as well */
+    box-shadow: none; /* Remove the box shadow on focus */
+}
+
 .customToggle:hover{
     background-color: #ACABAB;
     color:#ffffff
