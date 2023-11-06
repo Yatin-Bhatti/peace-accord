@@ -48,6 +48,10 @@
     font-family: 'Montserrat', sans-serif;
     width:700px;
 }
+.customToggle::after {
+    display: none;
+}
+
 .employButton{
     height:59px;
     width:140px;
