@@ -81,17 +81,24 @@ nav .menu span{
         flex-direction: column;
         width:100%;
         margin-bottom: 0.25rem;
-      
-        
-        
-        
+        transition: display 0.3s ease, margin-top 0.3s ease;
     }
     nav ul.open{
         display: flex; 
         margin-bottom: 1.5px;
         margin-left:-10px;
         background-color: #2AC1F0;
+        transition: display 0.3s ease, margin-top 0.3s ease;
+  animation: slideDown 0.3s ease;
     }
+    @keyframes slideDown {
+        from {
+          margin-top: -100%;
+        }
+        to {
+          margin-top: 0;
+        }
+      }
     nav ul li{
         width:100%;
         text-align: center;
