@@ -136,6 +136,11 @@ nav .menu span{
         transform: rotate(135deg) translate(-8px, 3px);
         transition: ease-out 0.5s;
     }
+
+    .burger-bar.unclicked{
+        transform:rotate(0) translate(0);
+        transition:cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s
+    }
     .contain{
         margin-right:15px;
     }
