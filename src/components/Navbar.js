@@ -25,11 +25,15 @@ if(login_password!==""&&Login_email!==""){
       }
       setMenuOpen(!menuOpen)
     }
+    const handleLogoClick=()=>{
+      setBurgerClass("burger-bar unclicked")
+      setMenuOpen(false)
+    }
   return (
     <nav >
       {/* <div style={{display:"flex",flexDirection:"row",justifyContent:'space-between',alignItems:"center"}}> */}
       <div className='iconAndBurger' >
-    <Link to="/" onClick={()=>setMenuOpen(false)} className="logo" style={{display:"flex",flexDirection:"row"}}>
+    <Link to="/" onClick={handleLogoClick} className="logo" style={{display:"flex",flexDirection:"row"}}>
       <div className="icon">
       <Union/>
       </div>
@@ -49,22 +53,22 @@ if(login_password!==""&&Login_email!==""){
     </div>
 
         <ul className={menuOpen?"open":""}>
-        <li onClick={()=>setMenuOpen(!menuOpen)} >
+        <li onClick={updateMenu} >
           <NavLink to="/review">REVIEW</NavLink>
         </li>
-        <li onClick={()=>setMenuOpen(!menuOpen)} >
+        <li onClick={updateMenu} >
           <NavLink to="/list">LIST</NavLink>
         </li>
-        <li onClick={()=>setMenuOpen(!menuOpen)} >
+        <li onClick={updateMenu} >
           <NavLink to="/sign">SIGN</NavLink>
         </li>
-        <li onClick={()=>setMenuOpen(!menuOpen)} >
+        <li onClick={updateMenu} >
           <NavLink to="/data">DATA</NavLink>
         </li>
-        <li onClick={()=>setMenuOpen(!menuOpen)} >
+        <li onClick={updateMenu} >
           <NavLink to="/about">ABOUT</NavLink>
         </li>
-        {clickable?<li  onClick={()=>setMenuOpen(!menuOpen)}>
+        {clickable?<li  onClick={updateMenu}>
             <NavLink to="/login">{loginHeading}</NavLink>
         </li>:<li>
             <NavLink>{loginHeading}</NavLink>
