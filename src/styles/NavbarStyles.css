@@ -64,6 +64,10 @@ nav .menu span{
     margin-top: -3px;
     margin-right:12px;
 }
+
+.burger-menu{
+    display: none;
+}
 @media (max-width:768px){
     nav .menu{
         display: flex;
@@ -100,6 +104,47 @@ nav .menu span{
     }
     nav .logo{
         font-size: 24px;
+    }
+    .burger-menu{
+        position: absolute;
+        height:100%;
+        width:4em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        cursor: pointer;
+        background-color: red;
+       
+    }
+    .burger-bar{
+        width:2.1em;
+        height:0.4em;
+        background-color: #ffffff;
+        border-radius: 0.5em;
+        margin: 3px 0;
+    }
+    .burger-bar.clicked:nth-child(1){
+        transform: rotate(45deg) translate(9.3px,6px);
+        transition: ease-out 0.5s;
+    }
+    .burger-bar.clicked:nth-child(2){
+        transform: scale(0.1);
+        transition: ease-out 0.5s;
+    }
+    .burger-bar.clicked:nth-child(3){
+        transform: rotate(135deg) translate(-8px, 3px);
+        transition: ease-out 0.5s;
+    }
+    .contain{
+        margin-right:15px;
+    }
+    .iconAndBurger{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
     }
 }
 
