@@ -2,28 +2,42 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Provider, useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
-import Home from "./screens/Home";
-import Data from "./screens/Data";
-import List from "./screens/List";
-import About from "./screens/About";
-import Sign from "./screens/Sign";
-import Login from "./screens/Login";
-import Name from "./screens/registationScreens/Name";
-import City from "./screens/registationScreens/City";
-import BirthDate from "./screens/registationScreens/BirthDate";
-import Employment from "./screens/registationScreens/Employment";
-import Password from "./screens/registationScreens/Password";
-import Review from "./screens/Review";
+// import Home from "./screens/Home";
+// import Data from "./screens/Data";
+// import List from "./screens/List";
+// import About from "./screens/About";
+// import Sign from "./screens/Sign";
+// import Login from "./screens/Login";
+// import Name from "./screens/registationScreens/Name";
+// import City from "./screens/registationScreens/City";
+// import BirthDate from "./screens/registationScreens/BirthDate";
+// import Employment from "./screens/registationScreens/Employment";
+// import Password from "./screens/registationScreens/Password";
+// import Review from "./screens/Review";
 import {DemoReviewData} from "../src/DemoData/DemoReviewData"
-import LoginPassword from "./screens/LoginPassword";
-import ForgotPassword from "./screens/ForgotPassword";
-import ForgotPasswordNotice from "./screens/ForgotPasswordNotice";
+// import LoginPassword from "./screens/LoginPassword";
+// import ForgotPassword from "./screens/ForgotPassword";
+// import ForgotPasswordNotice from "./screens/ForgotPasswordNotice";
 import store from "./redux/store";
 import NewPassword from "./screens/NewPassword";
-import PrivateRoute from "./screens/PrivatedRoute";
-import CustomModal from "./components/customModal";
-import { useEffect, useState } from "react";
+import { useEffect, useState,lazy,Suspense } from "react";
 import { useLocation } from 'react-router-dom';
+const Home=lazy(()=>import("./screens/Home"));
+const Data=lazy(()=>import("./screens/Data"));
+const List=lazy(()=>import("./screens/List"));
+const About=lazy(()=>import("./screens/About"));
+const Sign=lazy(()=>import("./screens/Sign"));
+const Login=lazy(()=>import("./screens/Login"));
+const Review=lazy(()=>import("./screens/Review"));
+const Name=lazy(()=>import("./screens/registationScreens/Name"));
+const City=lazy(()=>import("./screens/registationScreens/City"));
+const BirthDate=lazy(()=>import("./screens/registationScreens/BirthDate"));
+const Employment=lazy(()=>import("./screens/registationScreens/Employment"));
+const Password=lazy(()=>import("./screens/registationScreens/Password"));
+const LoginPassword=lazy(()=>import("./screens/LoginPassword"));
+const ForgotPassword=lazy(()=>import("./screens/ForgotPassword"));
+const ForgotPasswordNotice=lazy(()=>import("./screens/ForgotPasswordNotice"));
+const FallbackComponent=lazy(()=>import("./components/FallbackComponent"))
 function App() {
   const location=useLocation();
   useEffect(() => {
@@ -54,6 +68,8 @@ function App() {
   return (
     <Provider store={store}>
     <div className="App">
+      
+      <Suspense fallback={<FallbackComponent/>}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -73,7 +89,7 @@ function App() {
         <Route path="/forgotpasswordnotice" element={<ForgotPasswordNotice/>}/>
         <Route path="/newpassword" element={<NewPassword/>}/>
       </Routes>
-     
+      </Suspense>
     </div>
     </Provider>
   );
