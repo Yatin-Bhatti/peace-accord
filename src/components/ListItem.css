@@ -11,6 +11,10 @@
   }
 .listText{
   font-size: 32px;
+  padding-left:2px
+}
+.submissionContainer{
+  width:870px;
 }
   .dropButton{
     font-size: 32px;
@@ -21,9 +25,40 @@
     color:"#4D4C4C"
   }
 
+  @media(max-width:1024px){
+    .submissionContainer{
+      width:800px
+    }
+    .listText{
+      font-size: 28px;
+      width:700px;
+    }
+    .dropdown{
+      margin-left:-112px
+    }
+  }
+  @media(max-width:936px){
+    .submissionContainer{
+      width:670px
+    }
+    .listText{
+      font-size: 25px;
+      width:460px;
+    }
+    .dropdown{
+      margin-left:-218px;
+      margin-top:-8px;
+    }
+  }
+
+
   @media (max-width: 768px) {
     .listText{
       font-size: 18px;
+      width:300px
+    }
+    .submissionContainer{
+      width:300px
     }
     .dropButton{
       font-size: 18px;
@@ -32,19 +67,31 @@
     .votesCount,.seperator{
       font-size: 18px;
       margin-left:23px;
+    }
+    .dropdown{
+      margin-left: 0px;
     }
 
   }
-  @media (max-width: 768px) {
+  @media (max-width: 355px) {
     .listText{
-      font-size: 16px;
+      font-size: 15px;
+      width:200px
     }
     .dropButton{
-      font-size: 16px;
+      font-size: 15px;
       margin-left:23px;
+    }
+    .dropdown{
+      margin-left:-53px;
+      margin-top:-16px;
     }
     .votesCount,.seperator{
-      font-size: 16px;
+      font-size: 15px;
       margin-left:23px;
     }
+    .submissionContainer{
+      width:250px
+    }
   }
+ 

@@ -2,17 +2,24 @@ import React,{useEffect, useState} from 'react'
 import {Link,NavLink} from "react-router-dom"
 import "../styles/NavbarStyles.css"
 import {Union} from "../icons/Union"
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
+import { UseSelector } from 'react-redux';
 function Navbar({Login_email,login_password}) {
 const[loginHeading,setLoginHeading]=useState("LOG IN");
 const[clickable,setClickable]=useState(true)
 const[burger_class,setBurgerClass]=useState("burger-bar unclicked");
+const loginProcess=useSelector((state)=>state.loginProcess);
 useEffect(()=>{
-if(login_password!==""&&Login_email!==""){
-  setLoginHeading("Yatin : 3")
+if(loginProcess.user!==null){
+  setLoginHeading(`${loginProcess.user}:0`)
   setClickable(false)
 }
-},[login_password,Login_email])
+else if(loginProcess.user===null){
+  setLoginHeading("LOG IN")
+  setClickable(true)
+}
+
+},[loginProcess])
 
     const[menuOpen,setMenuOpen]=useState(false)
 
@@ -29,20 +36,15 @@ if(login_password!==""&&Login_email!==""){
       setBurgerClass("burger-bar unclicked")
       setMenuOpen(false)
     }
+    
   return (
     <nav >
-      {/* <div style={{display:"flex",flexDirection:"row",justifyContent:'space-between',alignItems:"center"}}> */}
       <div className='iconAndBurger' >
     <Link to="/" onClick={handleLogoClick} className="logo" style={{display:"flex",flexDirection:"row"}}>
       <div className="icon">
       <Union/>
       </div>
       PEACE ACCORD</Link>
-    {/* <div className="menu" onClick={()=>setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div> */}
     <div className="contain">
     <div className="burger_menu" onClick={updateMenu}>
       <div className={burger_class} onClick={updateMenu}></div>
@@ -51,7 +53,7 @@ if(login_password!==""&&Login_email!==""){
       </div>
     </div>
     </div>
-
+    
         <ul className={menuOpen?"open":""}>
         <li onClick={updateMenu} >
           <NavLink to="/review">REVIEW</NavLink>

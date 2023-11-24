@@ -1,31 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/Login.css"
-import { submitEmailLogin, submitPasswordLogin,login } from '../redux';
+import { submitEmailLogin, submitPasswordLogin,login, loginRequest } from '../redux';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 function Login({ submitEmailLogin, submitPasswordLogin }) {
   const dispatch=useDispatch();
+  const loginData=useSelector((state)=>state.login)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [valid,setValid]=useState(true);
   const navigate = useNavigate()
   const handleEmail = (e) => {
-    setEmail(e.target.value)
+   submitEmailLogin(e.target.value)
   }
   const handlePassword = (e) => {
-    setPassword(e.target.value)
+    submitPasswordLogin(e.target.value)
   }
+
   const handleSubmit = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
-      submitEmailLogin(email);
-      submitPasswordLogin(password);
-      dispatch(login());
-      navigate("/review")
-    } else if(!emailRegex.test(email)){
-      setValid(false)
-    }
+    const { Login_email: email, Login_password: password } = loginData;
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
+    //   submitEmailLogin(email);
+    //   submitPasswordLogin(password);
+    //   dispatch(loginRequest());
+    //   navigate("/review")
+    // } else if(!emailRegex.test(email)){
+    //   setValid(false)
+    // }
+    console.log(email,password)
+    dispatch(loginRequest(email,password,navigate))
   }
   return (
     <div className="logBody">

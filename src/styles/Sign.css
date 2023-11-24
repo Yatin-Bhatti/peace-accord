@@ -142,6 +142,77 @@ input[id="check"] + label {
     background-color: transparent;
   }
 
+  @media(max-width:1024px){
+    .signCont{
+      width:800px;
+      padding:10px;
+    }
+    input[id="check"] + label{
+      width:37px;
+      height:34px;
+    }
+    input[id="secondCheck"] + label{
+      width:41px;
+      height:34px;
+    }
+    .labelText{
+      font-size: 28px;
+    }
+    input[id="check"]:checked + label:after{
+      font-size: 21px;
+      top:0px;
+      padding-left: 4px;
+      padding-bottom:1px;
+      
+    }
+    input[id="secondCheck"]:checked + label:after{
+      font-size: 21px;
+      top:0px;
+      padding-left: 5px;
+      padding-bottom:0px;
+    }
+    .listContainer{
+      width:800px;
+      font-size: 28px;
+      padding:10px;
+    }
+  }
+  @media(max-width:936px){
+    .signCont{
+      width:700px;
+      padding:10px;
+    }
+    input[id="check"] + label{
+      width:37px;
+      height:34px;
+    }
+    input[id="secondCheck"] + label{
+      width:48px;
+      height:35px;
+    }
+    .labelText{
+      font-size: 25px;
+    }
+    input[id="check"]:checked + label:after{
+      font-size: 21px;
+      top:0px;
+      padding-left: 4px;
+      padding-bottom:1px;
+      
+    }
+    input[id="secondCheck"]:checked + label:after{
+      font-size: 21px;
+      top:0px;
+      padding-left: 5px;
+      padding-bottom:0px;
+    }
+    .listContainer{
+      width:700px;
+      font-size: 25px;
+      padding:10px;
+    }
+  }
+
   @media (max-width: 768px) {
     .signCont{
       width:340px;

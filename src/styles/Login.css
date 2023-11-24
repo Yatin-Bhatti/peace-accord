@@ -12,7 +12,7 @@
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:10px 20px 10px 20px;
+    padding:1px 20px 1px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
@@ -42,7 +42,7 @@
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:10px 20px 10px 20px;
+    padding:1px 20px 1px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
@@ -72,6 +72,62 @@
 font-size: 14px;
 margin-top: 12px;
 }
+
+@media(max-width:1024px){
+    .logCont{
+        width:800px;
+        padding:10px;
+        margin-left:-31px;
+    }
+    .inputCustomm{
+        width:670px;
+        font-size: 28px;
+        height:45px;
+    }
+    .inputCustommm{
+        width:670px;
+        font-size: 28px;
+        height:45px;
+    }
+    .submitButtonn{
+        font-size: 28px;
+        height:45px;
+        width: 120px;
+      
+    }
+    .linkStyle{
+        margin-left: -649px;
+        margin-top:-37px;
+    }
+}
+@media(max-width:936px){
+    .logCont{
+        width:700px;
+        padding:10px;
+        margin-left:0px;
+    }
+    .inputCustomm{
+        width:550px;
+        font-size: 25px;
+        height:40px;
+    }
+    .inputCustommm{
+        width:550px;
+        font-size: 25px;
+        height:40px;
+    }
+    .submitButtonn{
+        font-size: 25px;
+        height:40px;
+        width: 110px;
+      
+    }
+    .linkStyle{
+        margin-left: -520px;
+        margin-top:-39px;
+    }
+}
+
 @media (max-width: 768px) {
     .logCont{
         width:380px;

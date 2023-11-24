@@ -68,6 +68,26 @@ nav .menu span{
 .burger-menu{
     display: none;
 }
+
+@media (max-width:936px){
+    nav .logo{
+        font-size: 25px;
+    }
+}
+@media (max-width:876px){
+    nav .logo{
+        font-size: 20px;
+    }
+}
+@media(max-width:837px){
+    nav .logo{
+        font-size: 18px;
+    }
+    nav ul li a {
+        margin:0 0.1rem;
+    }
+}
+
 @media (max-width:768px){
     nav .menu{
         display: flex;

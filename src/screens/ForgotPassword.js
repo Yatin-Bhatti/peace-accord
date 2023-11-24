@@ -26,7 +26,7 @@ function ForgotPassword() {
   return (
     <div className="forgotBody">
         <div className="forgotCont">
-            
+            <div className="join">
         <input className='forgotInput' spellCheck="false"
           onChange={handleChange} value={email}
           onKeyDown={e =>{ if (e.key === 'Enter') {
@@ -37,6 +37,7 @@ function ForgotPassword() {
           
           
         <button className="forgotSubmit" onClick={handleSubmit} >Submit</button>
+        </div>
         <div className='invaidCont'>
         {!valid && <p className="invalid" >Please enter a valid email.</p>}
         </div>

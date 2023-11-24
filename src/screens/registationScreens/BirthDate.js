@@ -20,12 +20,27 @@ function BirthDate(props) {
         return regexPattern.test(input);
       };
 
+      function changeDateFormat(inputDate) {
+        const parts = inputDate.split('/');
+        if (parts.length === 3) {
+          const [month, day, year] = parts;
+          // Construct a new date string in the desired format
+          const newDateFormat = `${year}-${month}-${day}`;
+          return newDateFormat;
+        } else {
+          // Handle invalid date format
+          console.error('Invalid date format:', inputDate);
+          return inputDate;
+        }
+      }
+
     const handleAddBirth=()=>{
-        if (isValidBirthdate(birthText)&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!=="") {
-            props.addBirthDate(birthText);
+        if (isValidBirthdate(birthText)&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!=="") {
+          const newDate = changeDateFormat(birthText);
+            props.addBirthDate(newDate);
             navigate("/employment")
           }
-          else if(!isValidBirthdate(birthText)&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!==""){
+          else if(!isValidBirthdate(birthText)&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""&&registerData.city!==""){
             setValid(false)
           }
           else {

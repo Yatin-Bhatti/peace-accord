@@ -1,5 +1,19 @@
 import { ADD_FIRST_NAME } from "./registerTypes";
-import { ADD_LAST_NAME,ADD_CITY_NAME,ADD_BIRTH_DATE,ADD_EMPLOYMENT,SUBMIT_PASSWORD } from "./registerTypes";
+import { ADD_LAST_NAME,ADD_CITY_NAME,ADD_BIRTH_DATE,ADD_EMPLOYMENT,SUBMIT_PASSWORD,ADD_REGIS_PASSWORD,ADD_REGIS_EMAIL,REGISTER_REQUEST } from "./registerTypes";
+
+export const addRegisEmail=(email)=>{
+    return {
+        type:ADD_REGIS_EMAIL,
+        payload:email
+    }
+}
+
+export const addRegisPassword=(password)=>{
+    return {
+        type:ADD_REGIS_PASSWORD,
+        payload:password
+    }
+}
 
 export const addFirstName=(firstName)=>{
     return {
@@ -32,3 +46,12 @@ export const addEmployment=(employment)=>{
         payload:employment
     }
 }
+
+// export const registerRequest=(registrationData)=>({
+//     type:REGISTER_REQUEST,
+//     payload:registrationData,
+// });
+export const registerRequest = (registerData, navigate) => ({
+    type: REGISTER_REQUEST,
+    payload: { registerData, navigate }, // Include navigate in the payload
+  });

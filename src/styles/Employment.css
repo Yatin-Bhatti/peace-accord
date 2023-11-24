@@ -70,6 +70,42 @@
     margin-left: 20px;
 }
 
+
+@media(max-width:1024px){
+    .customToggle{
+        font-size: 28px;
+        width:670px;
+        height: 45px;
+        /* padding:13px 10px 10px 10px */
+    }
+    .customMenu{
+        font-size: 28px;
+        width:670px
+    }
+    .employButton{
+        font-size: 28px;
+        height:45px;
+        width:120px
+    }
+}
+@media(max-width:936px){
+    .customToggle{
+        font-size: 25px;
+        width:550px;
+        height: 40px;
+        /* padding:13px 10px 10px 10px */
+    }
+    .customMenu{
+        font-size: 25px;
+        width:550px
+    }
+    .employButton{
+        font-size: 25px;
+        height:40px;
+        width:110px
+    }
+}
+
 @media (max-width: 768px) {
     .employContainer{
         display: flex;

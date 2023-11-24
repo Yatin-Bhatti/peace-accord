@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
 import "../../styles/Password.css"
-import { submitPassword } from '../../redux'
+import { submitPassword,addRegisPassword } from '../../redux'
 import { useNavigate } from 'react-router';
 import { connect, useSelector } from 'react-redux'
 import { useEffect } from 'react';
-function Password({submitPassword}) {
+function Password({submitPassword,addRegisPassword}) {
     const[password,setPassword]=useState("")
     const navigate=useNavigate();
     const submitData=useSelector((state)=>state.submit);
@@ -17,9 +17,10 @@ function Password({submitPassword}) {
         setPassword(e.target.value)
     }
     const handleClick=()=>{
+     
       if(password.trim()!==""&&submitData.text!==""&&submitData.text!==""){
-        submitPassword(password);
-       
+        // submitPassword(password);
+        addRegisPassword(password);
         navigate("/name")
         
       }
@@ -52,7 +53,7 @@ const mapStateToProps=state=>{
   const mapDispatchToProps=dispatch=>{
     return {
       submitPassword:(password)=>dispatch(submitPassword(password)),
-     
+      addRegisPassword:(password)=>dispatch(addRegisPassword(password))
       
     }
   }

@@ -1,7 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useSelector,useDispatch } from "react-redux";
 import Navbar from "./components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { showLoader,hideLoader, loginSuccess,updateToken,updateTokenRequest, resetState } from "./redux";
 // import Home from "./screens/Home";
 // import Data from "./screens/Data";
 // import List from "./screens/List";
@@ -18,10 +20,13 @@ import {DemoReviewData} from "../src/DemoData/DemoReviewData"
 // import LoginPassword from "./screens/LoginPassword";
 // import ForgotPassword from "./screens/ForgotPassword";
 // import ForgotPasswordNotice from "./screens/ForgotPasswordNotice";
+import Backdrop from '@mui/material/Backdrop';
 import store from "./redux/store";
 import NewPassword from "./screens/NewPassword";
-import { useEffect, useState,lazy,Suspense } from "react";
+import CircularProgress from '@mui/material/CircularProgress';
+import { useEffect, useState,lazy,Suspense,CSSProperties } from "react";
 import { useLocation } from 'react-router-dom';
+import EditSubmission from "./screens/EditSubmission";
 const Home=lazy(()=>import("./screens/Home"));
 const Data=lazy(()=>import("./screens/Data"));
 const List=lazy(()=>import("./screens/List"));
@@ -38,15 +43,66 @@ const LoginPassword=lazy(()=>import("./screens/LoginPassword"));
 const ForgotPassword=lazy(()=>import("./screens/ForgotPassword"));
 const ForgotPasswordNotice=lazy(()=>import("./screens/ForgotPasswordNotice"));
 const FallbackComponent=lazy(()=>import("./components/FallbackComponent"))
+
 function App() {
+  const isLoaderVisible=useSelector((state)=>state.loader.isLoaderVisible);
+  const skipConformation=useSelector((state)=>state.registerFlow.skipConformation);
+  const [loading,setLoading]=useState(true);
+  const token=useSelector((state)=>state.loginProcess.token)
   const location=useLocation();
+  const dispatch=useDispatch();
+ const navigate=useNavigate();
+  let updateTokenFunction=async ()=>{
+   
+    let response =await fetch("https://peace-accord-api-0d93a6880046.herokuapp.com/account/token/refresh/",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({"refresh":token.refresh})
+    })
+    let data= await response.json();
+    console.log(data)
+    console.log(response)
+    if(response.status===200){
+   dispatch(updateToken(data.access))
+   const authTokens = JSON.parse(localStorage.getItem("authTokens"));
+   localStorage.setItem("authTokens", JSON.stringify({ ...authTokens, access: data.access }));
+    }
+    else{
+      localStorage.removeItem("authTokens");
+      localStorage.removeItem("userInfo");
+      dispatch(resetState());
+      navigate("./login")
+    }
+  }
+  useEffect(()=>{
+    if(token){
+      updateTokenFunction();
+    }
+  },[])
+useEffect(()=>{
+  let fiveMinutes=1000*60*5;
+ let interval =setInterval(()=>{
+    if(token){
+      updateTokenFunction();
+    }
+  },fiveMinutes)
+  return ()=>clearInterval(interval);
+
+
+},[token])
+
+
   useEffect(() => {
   
     const confirmUnload = (e) => {
+      if(skipConformation){
       e.preventDefault();
       e.returnValue = 'All the progress will be lost. Are you sure you want to refresh?';
       // showCustomModal();
     };
+  }
 
     if (
       ['/password', '/name', '/city', '/birthdate', '/employment','/login','newpassword' ].includes(location.pathname)
@@ -63,7 +119,8 @@ function App() {
         window.removeEventListener('beforeunload', confirmUnload,{capture: true});
       }
     };
-  }, [location]);
+  }, [location,skipConformation]);
+  
 
   return (
     <Provider store={store}>
@@ -71,6 +128,13 @@ function App() {
       
       <Suspense fallback={<FallbackComponent/>}>
       <Navbar />
+      <Backdrop
+  sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+  open={isLoaderVisible}
+>
+  <CircularProgress color="inherit" />
+</Backdrop>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/review" element={<Review data={DemoReviewData}/>}/>
@@ -88,6 +152,7 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword/>}/>
         <Route path="/forgotpasswordnotice" element={<ForgotPasswordNotice/>}/>
         <Route path="/newpassword" element={<NewPassword/>}/>
+        <Route path="/editSubmission" element={<EditSubmission/>} />
       </Routes>
       </Suspense>
     </div>

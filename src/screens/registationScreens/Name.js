@@ -9,6 +9,7 @@ function Name(props) {
     const [isFocused, setIsFocused] = useState(true);
     const navigate=useNavigate();
     const submitData=useSelector((state)=>state.submit);
+    const registerData=useSelector((state)=>state.register)
   const  handleFirstChange=(e)=>{
         setFirstName(e.target.value)
     }
@@ -22,7 +23,7 @@ const handleLastChange=(e)=>{
         }
     }
     const handleLastClick=()=>{
-        if(lastName.trim()!==""&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""){
+        if(lastName.trim()!==""&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""){
             props.addLastName(lastName)
             navigate("/city")
         }
@@ -48,7 +49,7 @@ const handleLastChange=(e)=>{
             onChange={handleFirstChange} placeholder="Enter first name"/>
            {isFocused&& <button className="button" onClick={handleFirstClick}>Add</button>}
             </div>
-            {props.firstName!==""&&<div className="secNameBody">
+            {props.first_name!==""&&<div className="secNameBody">
             <input className="firstName" spellCheck="false" onChange={handleLastChange} 
              onKeyDown={e =>{ if (e.key === 'Enter') {
               e.preventDefault(); 

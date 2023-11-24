@@ -18,7 +18,7 @@
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:10px 20px 10px 20px;
+    padding:1px 20px 1px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
@@ -60,6 +60,86 @@
   .listContainerr::-webkit-scrollbar-thumb {
     background-color: transparent;
   }
+  .errStyle{
+    
+    width:700px;
+    margin-left: -130px;
+  }
+
+
+  @media(max-width:1024px){
+    .cityContainer{
+        padding:10px;
+        width:800px;
+    }
+    .cityInput{
+        font-size: 28px;
+        height:45px;
+        width:670px
+    }
+    .cityButton{
+        font-size: 28px;
+        height:45px;
+        width:120px;
+       
+    }
+    .listContainerr{
+        max-height:242px;
+        overflow-y: auto;
+        margin-left:-112px;
+        margin-top:4px;
+    }
+    .list{
+        width:670px;
+        background-color: #ffffff;
+        margin-left:-112px;
+        border-radius: 5px;
+        list-style-type: none;
+        font-size: 28px;
+        margin:0;
+        padding:0;
+    }
+    .errStyle{
+        margin-left: -37px;
+    }
+  }
+
+  @media(max-width:936px){
+    .cityContainer{
+        padding:10px;
+        width:700px;
+    }
+    .cityInput{
+        font-size: 25px;
+        height:40px;
+        width:550px
+    }
+    .cityButton{
+        font-size: 25px;
+        height:40px;
+        width:110px;
+       
+    }
+    .listContainerr{
+        max-height:242px;
+        overflow-y: auto;
+        margin-left:-128px;
+        margin-top:4px;
+    }
+    .list{
+        width:550px;
+        background-color: #ffffff;
+        margin-left:-128px;
+        border-radius: 5px;
+        list-style-type: none;
+        font-size: 25px;
+        margin:0;
+        padding:0;
+    }
+    .errStyle{
+        margin-left: 73px;
+    }
+  }
 
   @media (max-width: 768px) {
     .cityContainer{
@@ -93,6 +173,12 @@
     }
     .cityButton{
         margin-left: 0px;
+    }
+    .errStyle{
+        width:340px;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -129,5 +215,12 @@
     }
     .cityButton{
         margin-left: 0px;
+    }
+    .errStyle{
+        width:250px;
+        font-size: 16px;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
     }
 }

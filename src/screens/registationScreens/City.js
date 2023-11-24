@@ -6,6 +6,7 @@ import { connect,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 function City(props) {
     const[searchText,setSearchText]=useState("")
+    const[showError,setShowError]=useState(true);
     const[suggestions,setSuggestions]=useState([])
     const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
@@ -31,6 +32,14 @@ function City(props) {
         console.log(suggestions.map((item)=>item.properties.formatted))
     },[suggestions])
 
+    useEffect(()=>{
+      if(searchText.length>=3&&suggestions.length===0){
+        setShowError(true)
+      } else{
+        setShowError(false)
+      }
+    },[searchText,suggestions])
+
     const handleChange=(e)=>{
         setSearchText(e.target.value)
     }
@@ -38,7 +47,12 @@ function City(props) {
         setSearchText(text)
     }
     const handleAddCity=()=>{
-        if(searchText.trim()!==""&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""){
+      if (showError) {
+        
+        return;
+      }
+    
+        if(searchText.trim()!==""&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""){
             props.addCityName(searchText)
             navigate("/birthdate")
         }
@@ -57,9 +71,11 @@ function City(props) {
           handleAddCity(); 
         }}}
         onChange={handleChange}/>
+        
         <button className="cityButton" onClick={handleAddCity}>Add</button>
         
         </div>
+        {showError&&<div className="errStyle"><p>Please enter a valid city</p></div>}
         <div className="listContainerr">
         <ul className="list" >
            {suggestions.map((item,index)=>(

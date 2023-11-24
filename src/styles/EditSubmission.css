@@ -1,0 +1,64 @@
+.revBody{
+    background-color: #2AC1F0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.revContainer{
+    height:600px;
+    width:900px;
+   display: flex;
+   flex-direction: row;
+
+}
+.inputDiv{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.submitButtton{
+    height:59px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    
+}
+
+.inputCustom{
+    
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:1px 20px 10px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    scrollbar-width: none;
+}
+.marginButton{
+margin-top:200px
+}
+.inputCustom::-webkit-scrollbar{
+    width:0px
+}
+.wordStyle{
+    color:white;
+    font-size: 14px;
+    width:700px;
+    text-align: end;
+    padding-left:10px;
+    margin-top: 3px;
+    margin-left:-10px
+}

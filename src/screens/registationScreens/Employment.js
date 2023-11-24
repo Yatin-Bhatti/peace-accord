@@ -1,21 +1,55 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
  import { addEmployment } from '../../redux';
 import "../../styles/Employment.css"
-import { connect,useSelector } from 'react-redux';
+import { connect,useSelector,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { registerRequest } from '../../redux/register/registerActions';
 function Employment(props) {
     const[status,setStatus]=useState("Employed")
     const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
     const navigate=useNavigate();
+    const dispatch=useDispatch();
     const changeStatus=(text)=>{
         setStatus(text)
     }
+    // useEffect(()=>{
+    //   props.addEmployment(status)
+    // },[status])
+    useEffect(() => {
+      let employmentCode;
+    
+      switch (status) {
+        case "Employed":
+          employmentCode = "E";
+          break;
+        case "Unemployed":
+          employmentCode = "UN";
+          break;
+        case "Retired":
+          employmentCode = "R";
+          break;
+        case "Homemaker":
+          employmentCode = "HM";
+          break;
+        case "Unable to work":
+          employmentCode = "UTW";
+          break;
+        default:
+          // Handle the default case if needed
+          employmentCode = "";
+      }
+    
+      // Call addEmployment with the mapped code
+      props.addEmployment(employmentCode);
+    }, [status]);
+    
 
-    const handleClick=()=>{
-        if(status.trim()!==""&&submitData.text!==""&&submitData.text!==""&&submitData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!==""&&registerData.birthDate!==""){
-            props.addEmployment(status)
+    const handleClick=async()=>{
+        if(status.trim()!==""&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""&&registerData.city!==""&&registerData.date_of_birth!==""){
+          //  await props.addEmployment(status)
+            dispatch(registerRequest(registerData,navigate));
         }
         else {
           alert("Your registration was interrupted, please enter details before proceeding")

@@ -7,20 +7,20 @@ import { useNavigate } from 'react-router';
 function Sign() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [redirectLogin, setRedirectLogin] = useState(false);
-  const Logged_in = useSelector((state) => state.login.Logged_in); 
-
+  // const Logged_in = useSelector((state) => state.login.Logged_in); 
+  const accessToken=useSelector((state)=>state.loginProcess.token);
 const navigate=useNavigate();
   const listItemRefs = useRef([]);
 
 
 const handleFirstCheckbox=()=>{
-  if(!Logged_in){
+  if(accessToken===null){
     setRedirectLogin(true);
   }
 }
 
   const handleSecondCheckboxChange=()=>{
-    if(Logged_in){
+    if(accessToken){
     setIsCheckboxChecked(!isCheckboxChecked);
     listItemRefs.current.forEach((ref) => {
       if (ref.current) {
@@ -63,14 +63,7 @@ const handleFirstCheckbox=()=>{
         <input type="checkbox" id="secondCheck"
         
         onChange={
-        //   ()=>{
-        //   setIsCheckboxChecked(!isCheckboxChecked)
-        //   listItemRefs.current.forEach((ref) => {
-        //     if (ref.current) {
-        //       ref.current.alterStatus(isCheckboxChecked); 
-        //     }
-        //   });
-        // }
+        
         handleSecondCheckboxChange
         } checked={isCheckboxChecked}/>
         <label htmlFor="secondCheck"></label>
