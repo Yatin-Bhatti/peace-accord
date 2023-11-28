@@ -62,9 +62,13 @@ function BirthDate(props) {
           handleAddBirth(); 
         }}}
         onFocus={birthFocus} onChange={handleChange}/>
-        {!valid && <p className="InvalidAlert">Please enter a valid birth date.</p>}
+        
         </div>
         <button className="birthButton" onClick={handleAddBirth}>Add</button>
+        
+        </div>
+        <div className="invalidDate">
+        {!valid && <p className="InvalidAlert">Please enter a valid birth date.</p>}
         </div>
         </div>
   )

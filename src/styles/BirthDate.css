@@ -43,6 +43,10 @@
     color:#000000;
     font-weight: 400;
 }
+.invalidDate{
+    width:700px;
+    margin-left:-130px;
+}
 
 @media(max-width:1024px){
 .birthContainer{
@@ -59,6 +63,11 @@
     height:45px;
     width:120px
 }
+.invalidDate{
+    width:670px;
+    margin-left:0px;
+    margin-top:-14px
+}
 }
 @media(max-width:936px){
     .birthContainer{
@@ -74,6 +83,11 @@
         font-size:25px;
         height:40px;
         width:110px
+    }
+    .invalidDate{
+        width:550px;
+        margin-left:-100px;
+        margin-top:-14px
     }
     }
 
@@ -92,6 +106,13 @@
       height: 39px;
       width:340px;
       height: 35px !important;
+    }
+    .invalidDate{
+        width:340px;
+        margin-left:0px;
+        margin-top:0px;
+        display: flex;
+        justify-content: center;
     }
     .birthButton{
         font-size: 18px;

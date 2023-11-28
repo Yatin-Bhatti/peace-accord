@@ -49,7 +49,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 .submitButtonn{
-    height:78px;
+    height:59px;
     width:140px;
     color:white;
     font-size:30px;
@@ -58,6 +58,7 @@
     border-width:0px;
     border-radius: 5px;
     margin-left: 20px;
+    padding-top:6px
 }
 .linkStyle{
     margin-left: -700px;
@@ -93,7 +94,7 @@ margin-top: 12px;
         font-size: 28px;
         height:45px;
         width: 120px;
-      
+      padding-top:0px
     }
     .linkStyle{
         margin-left: -649px;
@@ -159,7 +160,7 @@ margin-top: 12px;
         font-size: 18px;
         height:35px;
         width:90px;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 0px;
     }
 .linkStyle{
@@ -199,7 +200,7 @@ margin-top: 12px;
         font-size: 16px;
         height:32px;
         width:90px;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 0px;
     }
 .linkStyle{

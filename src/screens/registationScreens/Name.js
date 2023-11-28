@@ -40,7 +40,7 @@ const handleLastChange=(e)=>{
     
     return (
         <div className="nameBody">
-            <div className={`firstNameCont ${ props.firstName !== '' ? 'containerWithMargin' : ''}`}>
+            <div className={`firstNameCont ${ registerData.first_name !== '' ? 'containerWithMargin' : ''}`}>
             <input className="firstName" spellCheck="false" onFocus={handleFocus} 
              onKeyDown={e =>{ if (e.key === 'Enter') {
               e.preventDefault(); 
@@ -49,7 +49,7 @@ const handleLastChange=(e)=>{
             onChange={handleFirstChange} placeholder="Enter first name"/>
            {isFocused&& <button className="button" onClick={handleFirstClick}>Add</button>}
             </div>
-            {props.first_name!==""&&<div className="secNameBody">
+            {registerData.first_name!==""&&<div className="secNameBody">
             <input className="firstName" spellCheck="false" onChange={handleLastChange} 
              onKeyDown={e =>{ if (e.key === 'Enter') {
               e.preventDefault(); 
