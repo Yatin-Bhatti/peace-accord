@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 function ForgotPasswordNotice() {
     const navigate=useNavigate()
     const handleClick=()=>{
-        navigate("/newpassword")
+        navigate("/login")
     }
   return (
     <div className="noticeBody">

@@ -8,6 +8,8 @@ import loginProcessReducer from "./loginProcess/loginProcessReducer";
 import registrationFlowReducer from "./registrationFlow/registraionFlowReducer"
 import submissionListReducer from "./submissionList/submissionListReducer";
 import reviewSubmissionReducer from "./reviewSubmission/reviewSubmissionReducer";
+import dataReducer from "./data/dataReducer";
+import signCheckboxReducer from "./signCheckboxes/signCheckboxReducer";
 const rootReducer=combineReducers({
     register:registerReducer,
     submit:submitReducer,
@@ -17,7 +19,9 @@ const rootReducer=combineReducers({
     loginProcess:loginProcessReducer,
     registerFlow:registrationFlowReducer,
     submissionList:submissionListReducer,
-    reviewSubmission:reviewSubmissionReducer
+    reviewSubmission:reviewSubmissionReducer,
+    data:dataReducer,
+    signCheckboxes:signCheckboxReducer
 })
 
 export default rootReducer;

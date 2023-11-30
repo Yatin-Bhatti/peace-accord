@@ -9,6 +9,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
   const loginData=useSelector((state)=>state.login)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emptyPassword,setEmptyPassword]=useState(false);
   const [valid,setValid]=useState(true);
   const navigate = useNavigate()
   const handleEmail = (e) => {
@@ -17,10 +18,14 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
   const handlePassword = (e) => {
     submitPasswordLogin(e.target.value)
   }
-
-  const handleSubmit = () => {
-    const { Login_email: email, Login_password: password } = loginData;
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const handleFocus=()=>{
+    console.log("called")
+    setValid(true)
+  }
+  const handlePassFocus=()=>{
+    setEmptyPassword(false)
+  }
+// const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
     //   submitEmailLogin(email);
     //   submitPasswordLogin(password);
@@ -29,6 +34,28 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     // } else if(!emailRegex.test(email)){
     //   setValid(false)
     // }
+  const handleSubmit = () => {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(loginData.Login_email)&&loginData.Login_password.length===0){
+      setValid(false)
+      setEmptyPassword(true)
+      return
+    }
+    else if(!emailRegex.test(loginData.Login_email)&&loginData.Login_password.length>0){
+      setValid(false)
+      return
+    }
+    else if(loginData.Login_password.length===0){
+      setEmptyPassword(true)
+      return
+    }
+    // if(loginData.Login_password.length===0){
+    //   setEmptyPassword(true)
+    //   return
+    // }
+
+    const { Login_email: email, Login_password: password } = loginData;
     console.log(email,password)
     dispatch(loginRequest(email,password,navigate))
   }
@@ -36,6 +63,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     <div className="logBody">
       <div className="logCont">
         <input className='inputCustomm' spellCheck="false"
+        onFocus={handleFocus}
           onChange={handleEmail}
           onKeyDown={e =>{ if (e.key === 'Enter') {
             e.preventDefault(); 
@@ -47,13 +75,16 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
       </div>
       <div className="passCont">
         <input className='inputCustommm' spellCheck="false"
+        onFocus={handlePassFocus}
           onChange={handlePassword}
           onKeyDown={e =>{ if (e.key === 'Enter') {
             e.preventDefault(); 
             handleSubmit(); 
           }}}
           maxLength={10000} placeholder="Enter Password" />
+          
         <button className="submitButtonn" value={email} onClick={handleSubmit}>Login</button>
+        {emptyPassword&&<p className="invalidPass">Please enter password</p>}
       </div>
       <div className="linkStyle" >
         <a href="/forgotpassword">Forgot Password</a>

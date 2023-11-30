@@ -2,13 +2,15 @@ import React,{useEffect, useState} from 'react'
 import {Link,NavLink} from "react-router-dom"
 import "../styles/NavbarStyles.css"
 import {Union} from "../icons/Union"
-import { connect, useSelector } from 'react-redux'
-import { UseSelector } from 'react-redux';
+import { connect, useSelector,useDispatch } from 'react-redux'
+import { closeRegistrationFlow } from '../redux'
+
 function Navbar({Login_email,login_password}) {
 const[loginHeading,setLoginHeading]=useState("LOG IN");
 const[clickable,setClickable]=useState(true)
 const[burger_class,setBurgerClass]=useState("burger-bar unclicked");
 const loginProcess=useSelector((state)=>state.loginProcess);
+const dispatch=useDispatch();
 useEffect(()=>{
 if(loginProcess.user!==null){
   setLoginHeading(`${loginProcess.user}:0`)
@@ -33,6 +35,7 @@ else if(loginProcess.user===null){
       setMenuOpen(!menuOpen)
     }
     const handleLogoClick=()=>{
+      dispatch(closeRegistrationFlow())
       setBurgerClass("burger-bar unclicked")
       setMenuOpen(false)
     }

@@ -25,7 +25,8 @@ function Home(props) {
   const [charCount, setCharCount] = useState(text.length);
   const registerFlow=useSelector((state)=>state.registerFlow.isRegistrationFlowOpen)
   const accessToken=useSelector((state)=>state.loginProcess.token);
-  const submissionText=useSelector((state)=>state.submit.text)
+  const submissionText=useSelector((state)=>state.submit.text);
+  const[showSubInvalid,setShowSubInvalid]=useState(false);
 let user;
   const boxStyle = {
     position: 'absolute' ,
@@ -60,10 +61,8 @@ let user;
     [setText]
   );
 
-  
-
   const handleChange = (e) => {
-   
+    setIsFocused(true)
     const input = e.target;
     if (input.value.length <= 300) {
       
@@ -71,14 +70,13 @@ let user;
       setCharCount(input.value.length);
     }
     input.style.height = "";
-    input.style.height = Math.min(input.scrollHeight - 12, 200) + 'px';
+    input.style.height = Math.min(input.scrollHeight - 3, 200) + 'px';
     const inputValue = e.target.value;
 
 
   };
   useEffect(() => {
-    // This effect will be called after the component renders
-    // It ensures that props.submitText is called after the state has been updated
+    
     props.submitText(text);
   }, [text, props.submitText]);
   const handleEmail = (e) => {
@@ -87,7 +85,8 @@ let user;
   }
 
   const handleFocus = () => {
-    setIsFocused(true);
+    // setIsFocused(true);
+    setShowSubInvalid(false)
   };
   const mailFocus = () => {
     setValid(true);
@@ -148,6 +147,7 @@ let user;
     if(text.trim!==""){
       props.submitText(text)
     dispatch(openRegistrationFlow())
+    setIsFocused(false)
     setOpen(false)
     }
   }
@@ -155,6 +155,24 @@ let user;
   const handleRegister = () => {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if(submissionText===""&&(email.trim() === '')){
+      
+      setValid(false)
+      setShowSubInvalid(true)
+      return
+    }
+    else if(submissionText===""&&!emailRegex.test(email)){
+      
+      setValid(false)
+      setShowSubInvalid(true)
+      return
+    }
+    else if (submissionText===""){
+      setShowSubInvalid(true)
+      return
+    }
 
     if (email.trim() !== '' && emailRegex.test(email)) {
 
@@ -172,14 +190,18 @@ let user;
     <div className="revBody">
       <div className={`revContainer ${ registerFlow ? 'containerWithMargin' : ''}`}>
         <div className='inputDiv'>
-          <textarea className='inputCustom' value={text} spellCheck="false" onChange={handleChange}
+          <textarea 
+          className={`inputCustom ${text.length === 0 ? 'noScroll' : ''}`}
+           value={text} spellCheck="false" onChange={handleChange}
             onFocus={handleFocus}
             //  onBlur={handleBlur} 
 
             maxLength={300} placeholder="What is required for peace?" />
             <div className="wordStyle">
           <p >{`${charCount}/300`}</p>
+          
           </div>
+          {showSubInvalid&&<p className="submissionInvalid">Please enter a submission</p>}
         </div>
         <div className="buttonContainer">
           {isFocused && (<button className='submitButtton marginButton decMargin'
@@ -192,7 +214,7 @@ let user;
       {registerFlow && <div className="mailBody">
         
         <div className='mailCont'>
-          <textarea className='inputCustom addTopMargin' spellCheck="false"
+          <textarea className={`inputCustom addTopMargin ${email.length === 0 ? 'noScroll' : ''}`} spellCheck="false"
             onChange={handleEmail}
             onKeyDown={e =>{ if (e.key === 'Enter') {
               e.preventDefault(); 

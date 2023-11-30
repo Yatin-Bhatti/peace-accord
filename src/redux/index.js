@@ -8,3 +8,5 @@ export {loginRequest,loginFailure,loginSuccess,updateToken,updateTokenRequest,re
 export {openRegistrationFlow,closeRegistrationFlow,skipConfirmation,dontSkipConfirmation} from "./registrationFlow/registrationFlowActions"
 export {populateSubmissionList} from "./submissionList/submissionListActions"
 export {populateReviewSubmission,reviewCounterIncrement} from "./reviewSubmission/reviewSubmissionActions"
+export {populateData} from "./data/dataActions"
+export {checkFirstBox,uncheckFirstBox,checkSecondBox,uncheckSecondBox} from "./signCheckboxes/signCheckboxAction"

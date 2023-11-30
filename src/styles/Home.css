@@ -45,7 +45,7 @@
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:1px 20px 1px 20px;
+    padding:0.1px 20px 0.1px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
@@ -95,6 +95,14 @@ margin-top:200px
     margin-top: 3px;
     margin-left:-10px
 }
+.submissionInvalid{
+    color:black;
+    width:565px;
+    margin-left:23px
+}
+.noScroll {
+    overflow-y: hidden;
+  }
 
 /************************* Media Queries*****************************/
 
@@ -105,6 +113,7 @@ margin-top:200px
     }
     .inputDiv{
         width:670px;
+        margin-left:-6px
     }
     .inputCustom{
         font-size: 28px;
@@ -125,7 +134,9 @@ margin-top:200px
         height:45px;
     }
     .wordStyle{
-        margin-left: -49px;
+        width:670px;
+        
+        margin-left: -8px;
     }
     .mailBody{
         width:800px;
@@ -160,7 +171,8 @@ margin-top:200px
         height:40px;
     }
     .wordStyle{
-        margin-left: -167px;
+        width:550px;
+        margin-left: -10px;
     }
     .mailBody{
         width:700px;
@@ -217,6 +229,7 @@ margin-top:200px
         flex-direction: column;
         align-items: center;
         margin-top: 100px;
+        margin-left:0px
     }
     .mailCont{
         display: flex;
@@ -227,7 +240,20 @@ margin-top:200px
         margin-top: 20px;
     }
     .wordStyle{
-        width:340px
+        width:340px;
+        margin-left: 0px;
+    }
+    .submissionInvalid{
+        color:black;
+        width:340px;
+        display: flex;
+        justify-content: center;
+        margin-left:0px;
+    }
+    .InvalidAlert{
+        margin-left:0px;
+        display: flex;
+        justify-content: center;
     }
   }
   @media (max-width: 355px) {
@@ -288,4 +314,10 @@ margin-top:200px
           margin-left:-37px;
           font-size: 12px;
       }
+      .submissionInvalid{
+        color:black;
+        width:270px;
+        display: flex;
+        justify-content: center;
+    }
   }

@@ -62,7 +62,7 @@
 }
 .linkStyle{
     margin-left: -700px;
-    margin-top:-25px;
+    margin-top:5px;
     font-size: 14px;
     font-weight:400;
 }
@@ -74,6 +74,9 @@ font-size: 14px;
 margin-top: 12px;
 }
 
+.invalidPass{
+    margin-top:10px;
+}
 @media(max-width:1024px){
     .logCont{
         width:800px;
@@ -98,7 +101,7 @@ margin-top: 12px;
     }
     .linkStyle{
         margin-left: -649px;
-        margin-top:-37px;
+        margin-top:0px;
     }
 }
 @media(max-width:936px){
@@ -125,7 +128,7 @@ margin-top: 12px;
     }
     .linkStyle{
         margin-left: -520px;
-        margin-top:-39px;
+        margin-top:-5px;
     }
 }
 
@@ -165,7 +168,7 @@ margin-top: 12px;
     }
 .linkStyle{
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: 23px;
 }
 
 }
@@ -205,7 +208,7 @@ margin-top: 12px;
     }
 .linkStyle{
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: 18px;
 }
 
 }
