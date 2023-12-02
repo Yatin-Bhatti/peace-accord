@@ -5,9 +5,10 @@ import { useSelector,useDispatch } from 'react-redux';
 import {ListItems} from "../DemoData/DemoListItems"
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
-import { checkFirstBox, checkSecondBox, hideLoader, showLoader, uncheckFirstBox, uncheckSecondBox } from '../redux';
+import { checkFirstBox, checkSecondBox, hideLoader, populateSubmissionList, showLoader, uncheckFirstBox, uncheckSecondBox } from '../redux';
 function Sign() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+  const submissionList=useSelector((state)=>state.submissionList.list);
   const [redirectLogin, setRedirectLogin] = useState(false);
   // const Logged_in = useSelector((state) => state.login.Logged_in); 
   const accessToken=useSelector((state)=>state.loginProcess.token);
@@ -15,38 +16,8 @@ function Sign() {
 const navigate=useNavigate();
 const dispatch=useDispatch();
   const listItemRefs = useRef([]);
-
-
-// const handleFirstCheckbox=()=>{
-//   if(accessToken===null){
-//     setRedirectLogin(true);
-//   }
-// }
-
-  // const handleSecondCheckboxChange=()=>{
-  //   if(accessToken){
-  //   setIsCheckboxChecked(!isCheckboxChecked);
-  //   listItemRefs.current.forEach((ref) => {
-  //     if (ref.current) {
-  //       ref.current.alterStatus(isCheckboxChecked);
-  //     }
-  //   });
-
-  // }
-  //   else {
-  //     setRedirectLogin(true);
-  //   }
-  // }
-  const handleFirstCheckbox=async(e)=>{
-    //   console.log(e.target.checked)
-    //   if(accessToken){
-    //   setIsCheckboxChecked(!isCheckboxChecked);
-      
   
-    // }
-    //   else {
-    //     setRedirectLogin(true);
-    //   }
+  const handleFirstCheckbox=async(e)=>{
      if(accessToken===null){
       navigate("/login")
       return
@@ -92,15 +63,6 @@ const dispatch=useDispatch();
 
 
   const handleSecondCheckboxChange=async(e)=>{
-  //   console.log(e.target.checked)
-  //   if(accessToken){
-  //   setIsCheckboxChecked(!isCheckboxChecked);
-    
-
-  // }
-  //   else {
-  //     setRedirectLogin(true);
-  //   }
    if(accessToken===null){
     navigate("/login")
     return
@@ -143,17 +105,60 @@ const dispatch=useDispatch();
    }
     
   }
+  const callSubmissionList=async()=>{
+    try {
+     dispatch(showLoader())
+      const response = await fetch('https://peace-accord-api-0d93a6880046.herokuapp.com/submission/get_submission_list', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken.access}`,
+        },
+      });
+  
+      
+      if (response.ok) {
+        
+        const data = await response.json();
+  
+        
+        dispatch(populateSubmissionList(data));
+      } else {
+      
+        console.error('Failed to fetch submission list:', response.statusText);
+       
+      }
+    } catch (error) {
+      console.error('Error during submission list fetch:', error);
+      
+    }finally{
+      dispatch(hideLoader())
+    }
+  }
+    useEffect(()=>{
+   if(accessToken){
+    callSubmissionList();
+   }
+    else{
+      navigate("/login")
+    }
+    },[])
 
   useEffect(() => {
     if (redirectLogin) {
       navigate('/login');
     }
   }, [redirectLogin, navigate]);
+  useEffect(()=>{
+    if(submissionList!==null){
+    console.log(submissionList.results)
+    }
+  },[submissionList])
 
   return (
     <div className="signBody">
       <div className="signCont">
-      <div style={{
+      {submissionList!==null&&<div style={{
         display: "flex",
         flexDirection: "row",
         marginBottom:"30px"
@@ -166,8 +171,8 @@ const dispatch=useDispatch();
         <div className="labelBack">
         <label className="labelText" htmlFor="check">I WANT PEACE FOR ALL HUMANITY</label>
         </div>
-      </div>
-      <div style={{
+      </div>}
+      {submissionList!==null&&<div style={{
         display: "flex",
         flexDirection: "row"
       }}>
@@ -185,17 +190,17 @@ const dispatch=useDispatch();
         <label className="labelText moreWidth" htmlFor="secondCheck">IF THE PEACE ACCORD WAS THE FOLLOWING, I WOULD SIGN IT</label>
         </div>
         
-      </div>
+      </div>}
       <div>
       </div>
       <div className="listContainer">
-      {ListItems.map((item,index)=>{
+      {submissionList!==null&&submissionList.results.map((item,index)=>{
         const listItemRef = React.createRef();
         listItemRefs.current.push(listItemRef);
       return(
-        <div style={{display:"flex",margin:"20px"}} key={index}>
+        <div style={{display:"flex",margin:"20px",marginLeft:"0px",justifyContent:"center"}} key={index}>
         <div>{`${index+1}.`}&nbsp;&nbsp;</div>
-        <ListItem key={index} content={item.content} votes={item.numberOfVotes} ref={listItemRef}/>
+        <ListItem key={index} content={item.Submission_text} votes="25" ref={listItemRef}/>
         </div>
       )})}
         </div>

@@ -27,7 +27,6 @@ function Home(props) {
   const accessToken=useSelector((state)=>state.loginProcess.token);
   const submissionText=useSelector((state)=>state.submit.text);
   const[showSubInvalid,setShowSubInvalid]=useState(false);
-let user;
   const boxStyle = {
     position: 'absolute' ,
     top: '50%',
@@ -43,9 +42,7 @@ let user;
    setToken(localStorage.getItem("authTokens")?localStorage.getItem("authTokens"):null)
     
   },[])
-  useEffect(()=>{
-    console.log(registerFlow)
-  },[registerFlow])
+
   const setFormattedContent = useCallback(
     (text) => {
       let words = text.split(" ").filter(Boolean);
@@ -95,6 +92,9 @@ let user;
     setIsFocused(false);
   };
   const handleSubmit = async() => {
+    if(registerFlow){
+      return
+    }
     if(token===null){
    
       setOpen(true);
@@ -138,6 +138,7 @@ let user;
         dispatch(hideLoader())
       }
     }
+    
   };
   const handleSignin=()=>{
     navigate("/login")
