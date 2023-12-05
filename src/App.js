@@ -27,6 +27,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState,lazy,Suspense,CSSProperties } from "react";
 import { useLocation } from 'react-router-dom';
 import EditSubmission from "./screens/EditSubmission";
+import { UPDATE_TOKEN } from "./redux/loginProcess/loginProcessTypes";
 const Home=lazy(()=>import("./screens/Home"));
 const Data=lazy(()=>import("./screens/Data"));
 const List=lazy(()=>import("./screens/List"));
@@ -49,11 +50,12 @@ function App() {
   const skipConformation=useSelector((state)=>state.registerFlow.skipConformation);
   const [loading,setLoading]=useState(true);
   const token=useSelector((state)=>state.loginProcess.token)
+  console.log(token)
   const location=useLocation();
   const dispatch=useDispatch();
  const navigate=useNavigate();
+ const isPasswordResetRoute = location.pathname === '/newpassword';
   let updateTokenFunction=async ()=>{
-   
     let response =await fetch("https://peace-accord-api-0d93a6880046.herokuapp.com/account/token/refresh/",{
       method:"POST",
       headers:{
@@ -77,6 +79,13 @@ function App() {
     }
   }
   useEffect(()=>{
+    const storedToken = localStorage.getItem("authTokens");
+    const userInfo = localStorage.getItem("userInfo")
+    if (storedToken&&userInfo) {
+      dispatch(loginSuccess({ token: JSON.parse(storedToken), name: JSON.parse(userInfo).name }));
+    }
+  },[])
+  useEffect(()=>{
     if(token){
       updateTokenFunction();
     }
@@ -85,6 +94,7 @@ useEffect(()=>{
   let fiveMinutes=1000*60*5;
  let interval =setInterval(()=>{
     if(token){
+     
       updateTokenFunction();
     }
   },fiveMinutes)
@@ -127,7 +137,7 @@ useEffect(()=>{
     <div className="App">
       
       <Suspense fallback={<FallbackComponent/>}>
-      <Navbar />
+      {!isPasswordResetRoute && <Navbar />}
       <Backdrop
   sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
   open={isLoaderVisible}

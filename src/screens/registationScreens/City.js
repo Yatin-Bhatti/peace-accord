@@ -50,6 +50,9 @@ function City(props) {
 
     const handleChange=(e)=>{
         setSearchText(e.target.value)
+        if(!e.target.value.includes(",")){
+          setDecider(false)
+          }
     }
     const handleListItem=(text)=>{
         setSearchText(text)
@@ -60,8 +63,12 @@ function City(props) {
         
         return;
       }
+      if(searchText.trim()==""){
+        setShowError(true)
+        return
+      }
     
-        if(searchText.trim()!==""&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""){
+        if(submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""){
             props.addCityName(searchText)
             navigate("/birthdate")
         }

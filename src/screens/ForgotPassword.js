@@ -1,20 +1,62 @@
-import React, { useEffect, useState } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import "../styles/ForgotPassword.css"
 import { useNavigate } from 'react-router';
-
+import { useDispatch,useSelector } from 'react-redux';
+import { hideLoader, showLoader } from '../redux';
+const ForgotPasswordNotice = lazy(() => import('./ForgotPasswordNotice'));
 function ForgotPassword() {
     const [valid,setValid]=useState(true);
     const[email,setEmail]=useState("");
-    const navigate=useNavigate()
+    const[redirect,setRedirect]=useState(false)
+    const navigate=useNavigate();
+    const dispatch=useDispatch();
     const handleChange=(e)=>{
         setEmail(e.target.value);
     }
  
+    const callpassEmail=async()=>{
+      const payload={
+        email:email,
+        redirect_url:"https://peace-accord-f1b931eca321.herokuapp.com/newpassword"
+      }
+      try {
+        dispatch(showLoader())
+         const response = await fetch("https://peace-accord-api-0d93a6880046.herokuapp.com/account/request_reset_email", {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+            //  'Authorization': `Bearer ${accessToken.access}`,
+           },
+           body: JSON.stringify(payload),
+         });
+   
+        //  console.log(response)
+        
+         if (response.ok) {
+           
+          //  alert('A link has been sent to your email to reset password');
+           setEmail("")
+           window.location.href="/forgotpasswordnotice"
+           
+         } else {
+         
+           alert("Something went wrong !");
+           
+         }
+       } catch (error) {
+        alert("Something went wrong !");
+        
+       }finally{
+         dispatch(hideLoader())
+        
+       }
+    }
+ 
     const handleSubmit=()=>{
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        console.log("submit was called")
         if (email.trim() !== '' && emailRegex.test(email)) {
-          navigate("/forgotpasswordnotice")
+          callpassEmail();
+          
           setValid(true)
         } else {
         

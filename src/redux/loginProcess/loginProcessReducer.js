@@ -1,15 +1,17 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_TOKEN,RESET_STATE } from './loginProcessTypes';
 
 const initialState = {
-  token: (() => {
-    const storedToken = localStorage.getItem("authTokens");
-    return storedToken ? JSON.parse(storedToken) : null;
-  })(),
+  // token: (() => {
+  //   const storedToken = localStorage.getItem("authTokens");
+  //   return storedToken ? JSON.parse(storedToken) : null;
+  // })(),
+  token:null,
   error: null,
-  user: (() => {
-    const userObject = localStorage.getItem("userInfo");
-    return userObject ? JSON.parse(userObject).name : null;
-  })(),
+  // user: (() => {
+  //   const userObject = localStorage.getItem("userInfo");
+  //   return userObject ? JSON.parse(userObject).name : null;
+  // })(),
+  user:null
 };
 
 const loginProcessReducer = (state = initialState, action) => {
