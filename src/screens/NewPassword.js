@@ -45,7 +45,6 @@ function NewPassword() {
            method: 'PATCH',
            headers: {
              'Content-Type': 'application/json',
-            //  'Authorization': `Bearer ${accessToken.access}`,
            },
            body: JSON.stringify(payload),
          });
@@ -82,7 +81,9 @@ function NewPassword() {
         setSecondFeild(e.target.value)
     }
     const handleSubmit=()=>{
-        
+      if(firstField===""||secondField===""){
+        return
+      }
         if(firstField.trim()===secondField.trim()){
             setValid(true)
             callNewPassword();

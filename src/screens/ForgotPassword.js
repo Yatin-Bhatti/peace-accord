@@ -34,11 +34,13 @@ function ForgotPassword() {
         
          if (response.ok) {
            
-          //  alert('A link has been sent to your email to reset password');
+         
            setEmail("")
            window.location.href="/forgotpasswordnotice"
            
-         } else {
+         }
+         
+         else {
          
            alert("Something went wrong !");
            
