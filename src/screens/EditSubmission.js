@@ -13,7 +13,8 @@ function EditSubmission() {
   const navigate = useNavigate();
 
   const submissionText = queryParams.get('submissionText');
-  const[text,setText]=useState(submissionText?submissionText:"")
+  const processedText = submissionText ? submissionText.replace(/\n/g, '') : '';
+  const[text,setText]=useState(submissionText?processedText:"")
   const [charCount, setCharCount] = useState(text.length);
   const [token,setToken]=useState(null);
   const dispatch=useDispatch();

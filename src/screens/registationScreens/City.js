@@ -15,7 +15,6 @@ function City(props) {
     const navigate=useNavigate()
     useEffect(()=>{
         const fetchData=async()=>{
-          console.log("i was called")
             try{
                 if(searchText.trim()!==""){
                     // const apiKey="7ffd843118ab4739b0c87532daeac1fa"

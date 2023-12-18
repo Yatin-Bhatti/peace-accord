@@ -51,11 +51,6 @@ function NewPassword() {
    
          console.log(response)
          if (response.ok) {
-           
-          //  alert('Password successfully reset, You can now go login with new password');
-          //  setFirstField("");
-          //  setSecondFeild("");
-          //  setSuccess(true)
           startTransition(() => {
             setFirstField("");
             setSecondFeild("");
