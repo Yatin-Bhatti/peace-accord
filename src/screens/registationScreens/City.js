@@ -19,7 +19,7 @@ function City(props) {
                 if(searchText.trim()!==""){
                     // const apiKey="7ffd843118ab4739b0c87532daeac1fa"
                     // const apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${searchText}&apiKey=${apiKey}`;
-                    const apiUrl=`https://peace-accord-api-0d93a6880046.herokuapp.com/account/get_city?search=${searchText}`
+                    const apiUrl=`https://peace-accord-api-0d93a6880046.herokuapp.com/account/get_city?search=${searchText.trim()}`
                     
           const response = await axios.get(apiUrl);
           console.log(response.data.results)
@@ -68,7 +68,7 @@ function City(props) {
       }
     
         if(submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.first_name!==""&&registerData.last_name!==""){
-            props.addCityName(searchText)
+            props.addCityName(searchText.trim())
             navigate("/birthdate")
         }
           else{

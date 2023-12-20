@@ -18,13 +18,13 @@ const handleLastChange=(e)=>{
 }
   const  handleFirstClick=()=>{
         if(firstName.trim()!==""){
-            props.addFirstName(firstName);
+            props.addFirstName(firstName.trim());
             setIsFocused(false)
         }
     }
     const handleLastClick=()=>{
         if(lastName.trim()!==""&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""){
-            props.addLastName(lastName)
+            props.addLastName(lastName.trim())
             navigate("/city")
         }
        

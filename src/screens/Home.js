@@ -33,11 +33,30 @@ function Home(props) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: '#2AC1F0',
+    border: '1px solid #000',
     boxShadow: 24,
+    borderRadius:2,
+    fontFamily: 'Montserrat, sans-serif',
     p: 4,
+    color:"white",
+    '@media (max-width: 600px)': {
+      width:300
+    },
   };
+  const buttonStyle={
+    color:"white",
+    // font-size:30px;
+    
+    backgroundColor: 'black',
+    // border-width:0px;
+    borderRadius: 1,
+    fontWeight:"normal",
+    transition: 'background-color 0.3s', 
+    '&:hover': {
+      backgroundColor: '#3C3C3C', 
+    },
+  }
   useEffect(()=>{
    setToken(localStorage.getItem("authTokens")?localStorage.getItem("authTokens"):null)
     
@@ -100,6 +119,12 @@ function Home(props) {
       setOpen(true);
     }
     else{
+      const hasOnlyNewlines = /^[\r\n]+$/.test(submissionText);
+
+    if (hasOnlyNewlines||submissionText.trim()==="") {
+      // Handle the case when the input contains only newline characters
+      return;
+    }
       const decoded = jwtDecode(accessToken.access);
       const userId =decoded.user_id;
       const currentDate = new Date().toISOString();
@@ -246,25 +271,25 @@ function Home(props) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography> */}
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h2" sx={{mb:0.5}}>
       Create a new account
     </Typography>
 
     {/* Sign Up Section */}
     <div>
-      <Button variant="contained" color="primary" onClick={handleSignup} >
+      <Button variant="contained" color="primary" sx={buttonStyle} onClick={handleSignup} >
         Sign Up
       </Button>
     </div>
 
     {/* Or */}
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+    <Typography id="modal-modal-description" sx={{ mt: 3,mb:0.5 }}>
       Already a user?
     </Typography>
 
     {/* Sign In Section */}
     <div>
-      <Button variant="contained" color="secondary" onClick={handleSignin} >
+      <Button variant="contained" sx={buttonStyle} color="secondary" onClick={handleSignin} >
         Sign In
       </Button>
     </div>

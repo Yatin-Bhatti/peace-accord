@@ -75,6 +75,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
       </div>
       <div className="passCont">
         <input className='inputCustommm' spellCheck="false"
+        type="password"
         onFocus={handlePassFocus}
           onChange={handlePassword}
           onKeyDown={e =>{ if (e.key === 'Enter') {
