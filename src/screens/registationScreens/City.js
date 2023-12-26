@@ -17,13 +17,13 @@ function City(props) {
         const fetchData=async()=>{
             try{
                 if(searchText.trim()!==""){
-                    // const apiKey="7ffd843118ab4739b0c87532daeac1fa"
-                    // const apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${searchText}&apiKey=${apiKey}`;
-                    const apiUrl=`https://peace-accord-api-0d93a6880046.herokuapp.com/account/get_city?search=${searchText.trim()}`
+                    const apiKey="7ffd843118ab4739b0c87532daeac1fa"
+                    const apiUrl = `https://api.geoapify.com/v1/geocode/autocomplete?text=${searchText.trim()}&apiKey=${apiKey}`;
+                    // const apiUrl=`https://peace-accord-api-0d93a6880046.herokuapp.com/account/get_city?search=${searchText.trim()}`  in-house api
                     
           const response = await axios.get(apiUrl);
-          console.log(response.data.results)
-          setSuggestions(response.data.results);
+          setSuggestions(response.data.features)
+          // setSuggestions(response.data.results); // for in-house api
                 }else{
                     setSuggestions([])
                 }
@@ -62,7 +62,7 @@ function City(props) {
         
         return;
       }
-      if(searchText.trim()==""){
+      if(searchText.trim()===""){
         setShowError(true)
         return
       }
@@ -100,10 +100,14 @@ function City(props) {
         {showError&&<div className="errStyle"><p>Please enter a valid city</p></div>}
         <div className="listContainerr">
         <ul className="list" >
-           {suggestions.map((item,index)=>(
+          
+           {/* {suggestions.map((item,index)=>(
             <li onClick={()=>handleListItem(`${item.city}, ${item.country}`)} key={index}>{`${item.city}, ${item.country}`}</li>
             
-           ))} 
+           ))}            in case of in-house api*/}  
+           {suggestions.map((item,index)=>(
+            <li onClick={()=>handleListItem(item.properties.formatted)} key={index}>{item.properties.formatted}</li>
+           ))}
           
         </ul>
         </div>
