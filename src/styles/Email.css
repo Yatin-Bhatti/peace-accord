@@ -1,0 +1,164 @@
+.emailBody{
+    background-color: #2AC1F0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.emailContainer{
+    height:80px;
+    width:900px;
+   display: flex;
+   flex-direction: row;
+   margin-top: -120px
+}
+.emailInput{
+    width:700px;
+    height:59px;
+    border-radius: 5px;
+    border-width: 0px;
+    padding:0px 20px 0px 20px;
+    resize: none;
+    outline:none;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+.emailButton{
+    height:60px;
+    width:140px;
+    color:white;
+    font-size:30px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-width:0px;
+    border-radius: 5px;
+    margin-left: 20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.invalidEmailCont{
+    width:700px;
+margin-left:-170px
+}
+.emailInvalid{
+    margin-left:5px;
+
+}
+@media(max-width:1024px){
+.emailContainer{
+    padding: 10px;
+    width:850px;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -200px;
+}
+.emailInput{
+    font-size: 28px;
+          
+          width:670px;
+          height: 45px !important;
+}
+.emailButton{
+    font-size: 28px;
+    height:45px;
+    width:135px;
+    margin-top: 0px;
+    margin-left: 25px;
+}
+.invalidEmailCont{
+    width:670px;
+    margin-left:-115px
+}
+}
+@media(max-width:936px){
+    .emailContainer{
+        padding: 10px;
+          width:700px;
+          height:auto;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: -200px;
+    }
+    .emailInput{
+        font-size: 25px;
+          
+          width:550px;
+          height: 40px !important;
+    }
+    .emailButton{
+        font-size: 25px;
+        height:40px;
+        width:120px;
+        margin-top: 0px;
+        margin-left: 33px;
+    }
+    .invalidEmailCont{
+        width:550px;
+        margin-left:-115px
+    }
+}
+@media(max-width:768px){
+    .emailContainer{
+        padding: 10px;
+          width:400px;
+          height:auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: -200px;
+    }
+    .emailInput{
+        font-size: 18px;
+          
+          width:340px;
+          height: 35px !important;
+    }
+    .emailButton{
+        font-size: 18px;
+        height:35px;
+        width:90px;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+    .invalidEmailCont{
+        width:340px;
+        margin-left:0px;
+        display: flex;
+        justify-content: center;
+    }
+    .emailInvalid{
+        margin-left: 0px;
+    }
+}
+@media(max-width:355px){
+    .emailContainer{
+        padding: 10px;
+          width:300px;
+          height:auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: -200px;
+    }
+    .emailInput{
+        font-size: 16px;
+          
+          width:250px;
+          height: 32px !important;
+    }
+    .emailButton{
+        font-size: 16px;
+        height:32px;
+        width:90px;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+    .emailInvalid{
+        font-size: 16px;
+    }
+}

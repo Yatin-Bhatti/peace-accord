@@ -44,7 +44,7 @@ const LoginPassword=lazy(()=>import("./screens/LoginPassword"));
 const ForgotPassword=lazy(()=>import("./screens/ForgotPassword"));
 const ForgotPasswordNotice=lazy(()=>import("./screens/ForgotPasswordNotice"));
 const FallbackComponent=lazy(()=>import("./components/FallbackComponent"))
-
+const Email=lazy(()=>import("./screens/registationScreens/Email"))
 function App() {
   const isLoaderVisible=useSelector((state)=>state.loader.isLoaderVisible);
   const skipConformation=useSelector((state)=>state.registerFlow.skipConformation);
@@ -163,6 +163,7 @@ useEffect(()=>{
         <Route path="/forgotpasswordnotice" element={<ForgotPasswordNotice/>}/>
         <Route path="/newpassword" element={<NewPassword/>}/>
         <Route path="/editSubmission" element={<EditSubmission/>} />
+        <Route path="/email" element={<Email/>}/>
       </Routes>
       </Suspense>
     </div>

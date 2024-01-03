@@ -15,7 +15,7 @@ function LoginPassword({submitPasswordLogin}) {
   return (
     <div className="logPassBody">
         <div className="logPassCont">
-        <input className='inputCustom'  spellCheck="false" 
+        <input className='inputCustom' spellCheck="false" 
        onChange={handlePassword}
     maxLength={10000} placeholder="Enter Password"/>
     <button className="submitButton" value={password} onClick={handleSubmit}>Submit</button>

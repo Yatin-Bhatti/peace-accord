@@ -33,8 +33,6 @@ function ForgotPassword() {
         //  console.log(response)
         
          if (response.ok) {
-           
-         
            setEmail("")
            window.location.href="/forgotpasswordnotice"
            

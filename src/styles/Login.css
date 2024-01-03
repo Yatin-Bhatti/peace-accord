@@ -35,7 +35,7 @@
     margin-left:-160px;
 }
 .passCont{
-   height:100px
+   height:63px
 }
 .inputCustommm{
     width:700px;
@@ -103,6 +103,9 @@ margin-top: 12px;
         margin-left: -649px;
         margin-top:0px;
     }
+    .passCont{
+        height: 53px;
+    }
 }
 @media(max-width:936px){
     .logCont{
@@ -154,6 +157,7 @@ margin-top: 12px;
     }
     .passCont{
         width:400px;
+        height:100px;
         padding:10px;
         display: flex;
         flex-direction: column;

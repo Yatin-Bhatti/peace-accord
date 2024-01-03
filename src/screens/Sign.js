@@ -19,7 +19,7 @@ const dispatch=useDispatch();
   
   const handleFirstCheckbox=async(e)=>{
      if(accessToken===null){
-      navigate("/login")
+      navigate("/email")
       return
      }
      if(e.target.checked){
@@ -64,7 +64,7 @@ const dispatch=useDispatch();
 
   const handleSecondCheckboxChange=async(e)=>{
    if(accessToken===null){
-    navigate("/login")
+    navigate("/email")
     return
    }
    if(e.target.checked){
@@ -112,7 +112,7 @@ const dispatch=useDispatch();
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken.access}`,
+          // 'Authorization': `Bearer ${accessToken.access}`,
         },
       });
   
@@ -136,19 +136,20 @@ const dispatch=useDispatch();
     }
   }
     useEffect(()=>{
-   if(accessToken){
-    callSubmissionList();
-   }
-    else{
-      navigate("/login")
-    }
+  //  if(accessToken){
+  //   callSubmissionList();
+  //  }
+  //   else{
+  //     navigate("/login")
+  //   }
+  callSubmissionList();
     },[])
 
-  useEffect(() => {
-    if (redirectLogin) {
-      navigate('/login');
-    }
-  }, [redirectLogin, navigate]);
+  // useEffect(() => {
+  //   if (redirectLogin) {
+  //     navigate('/login');
+  //   }
+  // }, [redirectLogin, navigate]);
   useEffect(()=>{
     if(submissionList!==null){
     console.log(submissionList.results)

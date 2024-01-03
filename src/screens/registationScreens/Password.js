@@ -39,7 +39,7 @@ function Password({submitPassword,addRegisPassword}) {
     <div className="passBody">
         <div className="passContainer">
          
-        <input className="passInput" spellCheck="false" value={password} onFocus={handleFocus} 
+        <input className="passInput" type="password" spellCheck="false" value={password} onFocus={handleFocus} 
          onKeyDown={e =>{ if (e.key === 'Enter') {
           e.preventDefault(); 
           handleClick(); 

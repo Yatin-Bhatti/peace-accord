@@ -93,7 +93,7 @@ function NewPassword() {
     <div className="newPassBody">
        {token!==""?( !success?<div className="newCont">
         <div style={{marginBottom:"30px"}}>
-        <input className='newInput' spellCheck="false"
+        <input className='newInput' spellCheck="false" type="password"
          value={firstField} onChange={firstChange}
          onKeyDown={e =>{ if (e.key === 'Enter') {
             e.preventDefault(); 
@@ -102,7 +102,7 @@ function NewPassword() {
          maxLength={10000} placeholder="Enter new password" />
         </div>
         <div className="reInput">
-         <input className='newInput' spellCheck="false"
+         <input className='newInput' spellCheck="false" type="password"
          value={secondField} onChange={secondChange}
          onKeyDown={e =>{ if (e.key === 'Enter') {
             e.preventDefault(); 
