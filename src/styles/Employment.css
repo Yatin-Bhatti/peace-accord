@@ -1,13 +1,13 @@
 .employBody{
     background-color: #2AC1F0;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .employContainer{
-    margin-top: -250px;
+    margin-top: -150px;
     display: flex;
     flex-direction: row;
 }

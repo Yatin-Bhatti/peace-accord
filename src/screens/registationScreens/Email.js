@@ -24,11 +24,20 @@ function Email() {
       navigate("/password")
     }
   }
+  const handleFocus=()=>{
+    setShowInvalid(false)
+  }
 
   return (
     <div className="emailBody">
       <div className="emailContainer">
-      <input className="emailInput" spellCheck="false" placeholder="Enter email" onChange={handleEmail}/>
+      <input className="emailInput" spellCheck="false" placeholder="Enter email" onChange={handleEmail}
+       onKeyDown={e =>{ if (e.key === 'Enter') {
+        e.preventDefault(); 
+        handleRegister(); 
+      }}}
+      onFocus={handleFocus}
+      />
   
       <button className="emailButton" onClick={handleRegister}>Register</button>
       </div>
