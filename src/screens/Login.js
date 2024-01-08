@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import "../styles/Login.css"
 import { submitEmailLogin, submitPasswordLogin,login, loginRequest } from '../redux';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useDispatch,useSelector } from 'react-redux';
+import { TweenMax,Power3 } from 'gsap';
 function Login({ submitEmailLogin, submitPasswordLogin }) {
   const dispatch=useDispatch();
   const loginData=useSelector((state)=>state.login)
@@ -11,6 +12,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
   const [password, setPassword] = useState("");
   const [emptyPassword,setEmptyPassword]=useState(false);
   const [valid,setValid]=useState(true);
+  let containerRef=useRef(null)
   const navigate = useNavigate()
   const handleEmail = (e) => {
    submitEmailLogin(e.target.value)
@@ -25,6 +27,20 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
   const handlePassFocus=()=>{
     setEmptyPassword(false)
   }
+  
+  useEffect(()=>{
+
+    TweenMax.to(
+      containerRef,
+      0.8,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut
+      }
+    )
+      
+    },[])
 // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
     //   submitEmailLogin(email);
@@ -60,7 +76,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     dispatch(loginRequest(email,password,navigate))
   }
   return (
-    <div className="logBody">
+    <div ref={el=>{containerRef=el}}  className="logBody">
       <div className="logCont">
         <input className='inputCustomm' spellCheck="false"
         onFocus={handleFocus}

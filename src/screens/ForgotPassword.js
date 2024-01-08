@@ -30,12 +30,14 @@ function ForgotPassword() {
            body: JSON.stringify(payload),
          });
    
-        //  console.log(response)
+         
         
          if (response.ok) {
            setEmail("")
            window.location.href="/forgotpasswordnotice"
            
+         } else if(response.status===400){
+          alert("Please enter the registered email");
          }
          
          else {

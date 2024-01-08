@@ -1,10 +1,25 @@
-import React from 'react'
+import React,{useEffect,useRef} from 'react'
 import "../styles/About.css"
+import { TweenMax,Power3 } from 'gsap';
 function About() {
+  let containerRef=useRef(null)
+  useEffect(()=>{
+
+    TweenMax.to(
+      containerRef,
+      1,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut
+      }
+    )
+      
+    },[])
   return (
     <div className="aboutContainer">
       <div className="textContainer">
-        <div className="content">
+        <div className="content" ref={el=>{containerRef=el}} >
       <p>WHO?</p>
       <br></br>
       <p>The Peace Accord is for human beings who want peace on earth.</p>

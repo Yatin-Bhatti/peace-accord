@@ -3,11 +3,13 @@
   justify-content: center; 
   align-items: center; 
     background-color: #2ac1f0;
-    height:93vh
+    height:93vh;
+   
 }
 .dataBox{
     margin-top: -10vh;
-    margin-left:130px
+    margin-left:130px;
+    margin-top:20px
 }
 .singleData1,.singleData2,.singleData3,.singleData4{
     margin-bottom: 30px;

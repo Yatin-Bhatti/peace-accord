@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {ListItems} from "../DemoData/DemoListItems"
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import { TweenMax,Power3 } from 'gsap';
 import { checkFirstBox, checkSecondBox, hideLoader, populateSubmissionList, showLoader, uncheckFirstBox, uncheckSecondBox } from '../redux';
 function Sign() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -16,7 +17,7 @@ function Sign() {
 const navigate=useNavigate();
 const dispatch=useDispatch();
   const listItemRefs = useRef([]);
-  
+  let containerRef=useRef(null)
   const handleFirstCheckbox=async(e)=>{
      if(accessToken===null){
       navigate("/email")
@@ -60,7 +61,19 @@ const dispatch=useDispatch();
      }
       
     }
+    useEffect(()=>{
 
+      TweenMax.to(
+        containerRef,
+        1.4,
+        {
+          opacity:1,
+          y:-20,
+          ease:Power3.easeOut
+        }
+      )
+        
+      },[])
 
   const handleSecondCheckboxChange=async(e)=>{
    if(accessToken===null){
@@ -158,7 +171,7 @@ const dispatch=useDispatch();
 
   return (
     <div className="signBody">
-      <div className="signCont">
+      <div className="signCont"  ref={el=>{containerRef=el}}>
       {submissionList!==null&&<div style={{
         display: "flex",
         flexDirection: "row",
@@ -201,7 +214,7 @@ const dispatch=useDispatch();
       return(
         <div style={{display:"flex",margin:"20px",marginLeft:"0px",justifyContent:"center"}} key={index}>
         <div>{`${index+1}.`}&nbsp;&nbsp;</div>
-        <ListItem key={index} content={item.Submission_text} votes="25" ref={listItemRef}/>
+        <ListItem key={index} content={item.Submission_text} votes={item.vote_count} ref={listItemRef} id={item.id} accessToken={accessToken}/>
         </div>
       )})}
         </div>

@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import "../styles/Review.css"
 import { hideLoader, nextReview, populateReviewSubmission, reviewCounterIncrement, showLoader } from '../redux'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-
+import { TweenMax,Power3 } from 'gsap';
 function Review(props) {
+
     const dispatch=useDispatch();
-    const navigate=useNavigate();
- 
+ const navigate=useNavigate();
     const reviewList=useSelector((state)=>state.reviewSubmission.reviewList);
     const accessToken=useSelector((state)=>state.loginProcess.token);
    
-
+    let containerRef=useRef(null)
     const callReviewSubmission=async()=>{
         try {
          dispatch(showLoader())
@@ -54,7 +54,19 @@ function Review(props) {
             if(reviewList!==null){
             console.log(reviewList.results)}
          },[reviewList])
+         useEffect(()=>{
 
+          TweenMax.to(
+            containerRef,
+            0.8,
+            {
+              opacity:1,
+              y:-20,
+              ease:Power3.easeOut
+            }
+                      )
+            
+          },[])
          const ReviewComponent=()=>{
             const reviewCounter=useSelector((state)=>state.reviewSubmission.counter);
 
@@ -85,7 +97,7 @@ function Review(props) {
 
   return (
     <div className="rewBody">
-        <div className="allCont">
+        <div className="allCont" ref={el=>{containerRef=el}}>
             <ReviewComponent/>
         
         </div>

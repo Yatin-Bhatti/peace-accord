@@ -9,6 +9,7 @@ import { openRegistrationFlow } from '../redux';
 import "../styles/Home.css"
 import { connect,useDispatch,useSelector } from 'react-redux';
 import { jwtDecode } from "jwt-decode";
+import { TweenMax,Power3 } from 'gsap';
 function Home(props) {
   const [text, setText] = useState('');
   const [email, setEmail] = useState("");
@@ -27,6 +28,8 @@ function Home(props) {
   const accessToken=useSelector((state)=>state.loginProcess.token);
   const submissionText=useSelector((state)=>state.submit.text);
   const[showSubInvalid,setShowSubInvalid]=useState(false);
+  let containerRef=useRef(null)
+  
   const boxStyle = {
     position: 'absolute' ,
     top: '50%',
@@ -61,7 +64,19 @@ function Home(props) {
    setToken(localStorage.getItem("authTokens")?localStorage.getItem("authTokens"):null)
     
   },[])
+useEffect(()=>{
 
+TweenMax.to(
+  containerRef,
+  0.8,
+  {
+    opacity:1,
+    y:-20,
+    ease:Power3.easeOut
+  }
+)
+  
+},[])
   const setFormattedContent = useCallback(
     (text) => {
       let words = text.split(" ").filter(Boolean);
@@ -122,7 +137,7 @@ function Home(props) {
       const hasOnlyNewlines = /^[\r\n]+$/.test(submissionText);
 
     if (hasOnlyNewlines||submissionText.trim()==="") {
-      // Handle the case when the input contains only newline characters
+      
       return;
     }
       const decoded = jwtDecode(accessToken.access);
@@ -214,7 +229,7 @@ function Home(props) {
 
   return (
     <div className="revBody">
-      <div className={`revContainer ${ registerFlow ? 'containerWithMargin' : ''}`}>
+      <div ref={el=>{containerRef=el}} className={`revContainer ${ registerFlow ? 'containerWithMargin' : ''}`}>
         <div className='inputDiv'>
           <textarea 
           className={`inputCustom ${text.length === 0 ? 'noScroll' : ''}`}
@@ -230,7 +245,7 @@ function Home(props) {
           {showSubInvalid&&<p className="submissionInvalid">Please enter a submission</p>}
         </div>
         <div className="buttonContainer">
-          {isFocused && (<button className='submitButtton marginButton decMargin'
+          {isFocused && (<button className='submitButtton decMargin'
 
             onClick={handleSubmit}
           >Submit</button>)}
@@ -263,6 +278,7 @@ function Home(props) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        disableEnforceFocus={true}
       >
         <Box sx={boxStyle}>
           {/* <Typography id="modal-modal-title" variant="h6" component="h2">
