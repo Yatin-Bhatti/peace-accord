@@ -1,6 +1,6 @@
 import React,{useEffect,useRef} from 'react'
 import "../styles/About.css"
-import { TweenMax,Power3 } from 'gsap';
+import { TweenMax,Power3,} from 'gsap';
 function About() {
   let containerRef=useRef(null)
   useEffect(()=>{

@@ -4,6 +4,7 @@ import { hideLoader, nextReview, populateReviewSubmission, reviewCounterIncremen
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { TweenMax,Power3 } from 'gsap';
+import { jwtDecode } from "jwt-decode";
 function Review(props) {
 
     const dispatch=useDispatch();
@@ -68,11 +69,64 @@ function Review(props) {
             
           },[])
          const ReviewComponent=()=>{
-            const reviewCounter=useSelector((state)=>state.reviewSubmission.counter);
-
+          const reviewCounter = useSelector((state) => state.reviewSubmission.counter);
+          const reviewList = useSelector((state) => state.reviewSubmission.reviewList);
+        
+          if (!reviewList || !reviewList.results || reviewList.results.length === 0) {
+            return null; // Return early if reviewList or its results are null or empty
+          }
+        
+          const submissionId = reviewList.results[reviewCounter]?.id;
+        
+          if (!submissionId) {
+            console.error("Invalid submissionId");
+            return null;
+          }
+        
+            // const reviewCounter=useSelector((state)=>state.reviewSubmission.counter);
+            
+            // const submissionId=useSelector((state)=>state.reviewSubmission.reviewList.results[reviewCounter].id)
+            
            const handleClick=()=>{
             dispatch(reviewCounterIncrement())
            }
+          const handleVote=async(text)=>{
+            const decoded = jwtDecode(accessToken.access);
+      const userId =decoded.user_id;
+      const currentDate = new Date().toISOString();
+      const vote=text;
+      const payload={
+        "vote":vote,
+        "date_voted":currentDate,
+        "submission":submissionId,
+        "user":userId
+      }
+      try{
+        dispatch(showLoader())
+        const response = await fetch('https://peace-accord-api-0d93a6880046.herokuapp.com/submission/vote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken.access}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        console.log(response)
+        if(response.ok){
+          if(reviewCounter<reviewList.results.length-1)
+          dispatch(reviewCounterIncrement())
+        }
+        else{
+          return
+        }
+      }
+      catch(error){
+        console.log("Error occured while voting: ",error)
+      }
+      finally{
+        dispatch(hideLoader())
+      }
+          }
 
            const handleEditClick=()=>{
             const submissionText = reviewList.results[reviewCounter].Submission_text;
@@ -83,8 +137,8 @@ function Review(props) {
             </div>
             <div className="buttonsContainer">
                 <div className="setOne">
-            <button className="rewButton" onClick={handleClick} disabled={reviewCounter===reviewList.results.length-1}>No</button>
-            <button className="rewButton" onClick={handleClick} disabled={reviewCounter===reviewList.results.length-1}>Yes</button>
+            <button className="rewButton" onClick={()=>handleVote("N")} >No</button>
+            <button className="rewButton" onClick={()=>handleVote("Y")} disabled={reviewCounter===reviewList.results.length-1}>Yes</button>
             </div>
             <div className="setTwo" >
             <button className="rewButton" onClick={handleClick} disabled={reviewCounter===reviewList.results.length-1}>Skip</button>

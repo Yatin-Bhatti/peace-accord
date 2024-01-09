@@ -1,12 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import "../../styles/Password.css"
 import { submitPassword,addRegisPassword } from '../../redux'
 import { useNavigate } from 'react-router';
 import { connect, useSelector } from 'react-redux'
 import { useEffect } from 'react';
+import { TweenMax,Power3 } from 'gsap';
 function Password({submitPassword,addRegisPassword}) {
     const[password,setPassword]=useState("")
     const navigate=useNavigate();
+    let containerRef=useRef(null)
     const submitData=useSelector((state)=>state.submit);
     const [showInvalid,setShowInvalid]=useState(false);
  
@@ -35,9 +37,22 @@ function Password({submitPassword,addRegisPassword}) {
         navigate("/")
       }
     }
+    useEffect(()=>{
+
+      TweenMax.to(
+        containerRef,
+        0.8,
+        {
+          opacity:1,
+          x:-20,
+          ease:Power3.easeOut
+        }
+                  )
+        
+      },[])
   return (
     <div className="passBody">
-        <div className="passContainer">
+        <div className="passContainer" ref={el=>{containerRef=el}}>
          
         <input className="passInput" type="password" spellCheck="false" value={password} onFocus={handleFocus} 
          onKeyDown={e =>{ if (e.key === 'Enter') {

@@ -1,15 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import "../../styles/Name.css"
 import { connect, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { addFirstName,addLastName } from '../../redux';
+
+import { TweenMax,Power3 } from 'gsap';
 function Name(props) {
     const[firstName,setFirstName]=useState("")
     const[lastName,setLastName]=useState("")
     const [isFocused, setIsFocused] = useState(true);
     const navigate=useNavigate();
+    let containerRef=useRef(null)
     const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register)
+    useEffect(()=>{
+
+      TweenMax.to(
+        containerRef,
+        0.8,
+        {
+          opacity:1,
+          x:-20,
+          ease:Power3.easeOut
+        }
+                  )
+        
+      },[])
   const  handleFirstChange=(e)=>{
         setFirstName(e.target.value)
     }
@@ -40,7 +56,7 @@ const handleLastChange=(e)=>{
     
     return (
         <div className="nameBody">
-            <div className={`firstNameCont ${ registerData.first_name !== '' ? 'containerWithMargin' : ''}`}>
+            <div className={`firstNameCont ${ registerData.first_name !== '' ? 'containerWithMargin' : ''}`} ref={el=>{containerRef=el}}>
             <input className="firstName" spellCheck="false" onFocus={handleFocus} 
              onKeyDown={e =>{ if (e.key === 'Enter') {
               e.preventDefault(); 
