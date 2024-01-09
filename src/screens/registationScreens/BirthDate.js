@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import "../../styles/BirthDate.css"
 import { connect,useSelector } from 'react-redux';
 import { addBirthDate } from '../../redux';
 import { useNavigate } from 'react-router';
+import { TweenMax,Power3 } from 'gsap';
 function BirthDate(props) {
   const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
     const[birthText,setBirthText]=useState("")
+    let containerRef=useRef(null)
     const [valid,setValid]=useState(true);
     const navigate=useNavigate()
     const handleChange=(e)=>{
@@ -33,7 +35,19 @@ function BirthDate(props) {
           return inputDate;
         }
       }
+      useEffect(()=>{
 
+        TweenMax.to(
+          containerRef,
+          0.8,
+          {
+            opacity:1,
+            x:-20,
+            ease:Power3.easeOut
+          }
+                    )
+          
+        },[])
     const handleAddBirth=()=>{
         if (isValidBirthdate(birthText)&&submitData.text!==""&&registerData.email!==""&&registerData.password!==""&&registerData.firstName!==""&&registerData.lastName!==""&&registerData.city!=="") {
           const newDate = changeDateFormat(birthText);
@@ -54,7 +68,7 @@ function BirthDate(props) {
     
   return (
     <div className="birthBody">
-        <div className="birthContainer">
+        <div className="birthContainer" ref={el=>{containerRef=el}}>
             <div style={{display:"flex",flexDirection:"column"}}>
         <input className="birthInput" spellCheck="false" value={birthText} placeholder="BIRTH DATE MM/DD/YYYY"
          onKeyDown={e =>{ if (e.key === 'Enter') {

@@ -7,10 +7,11 @@
     justify-content: center;
 }
 .cityContainer{
-
+    margin-left:40px;
    display: flex;
    width: 900px;
-   height:72px
+   height:72px;
+   margin-top:-65px;
 }
 .cityInput{
    

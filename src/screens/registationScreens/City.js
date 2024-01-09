@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import {addCityName} from "../../redux"
 import axios from 'axios';
 import "../../styles/City.css";
 import { connect,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { TweenMax,Power3 } from 'gsap';
 function City(props) {
     const[searchText,setSearchText]=useState("")
     const[showError,setShowError]=useState(true);
@@ -11,7 +12,7 @@ function City(props) {
     const[decider,setDecider]=useState(false);
     const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
-
+    let containerRef=useRef(null)
     const navigate=useNavigate()
     useEffect(()=>{
         const fetchData=async()=>{
@@ -46,7 +47,19 @@ function City(props) {
       }
     },[searchText,suggestions])
     
+    useEffect(()=>{
 
+      TweenMax.to(
+        containerRef,
+        0.8,
+        {
+          opacity:1,
+          x:-20,
+          ease:Power3.easeOut
+        }
+                  )
+        
+      },[])
     const handleChange=(e)=>{
         setSearchText(e.target.value)
         if(!e.target.value.includes(",")){
@@ -84,7 +97,7 @@ function City(props) {
     }
   return (
     <div className="cityBody">
-        <div className="cityContainer">
+        <div className="cityContainer"  ref={el=>{containerRef=el}}>
         <input className="cityInput" spellCheck="false" value={searchText} placeholder="City you live in..."
          onKeyDown={e =>{ if (e.key === 'Enter') {
           e.preventDefault(); 

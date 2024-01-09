@@ -10,7 +10,9 @@
 .birthContainer{
     display: flex;
     width: 900px;
-    height:72px
+    height:72px;
+    margin-left: 40px;
+    margin-top:-65px
 }
 
 .birthInput{

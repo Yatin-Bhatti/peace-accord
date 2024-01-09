@@ -1,16 +1,18 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
  import { addEmployment } from '../../redux';
 import "../../styles/Employment.css"
 import { connect,useSelector,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { registerRequest } from '../../redux/register/registerActions';
+import { TweenMax,Power3 } from 'gsap';
 function Employment(props) {
     const[status,setStatus]=useState("Employed")
     const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
     const navigate=useNavigate();
     const dispatch=useDispatch();
+    let containerRef=useRef(null)
     const changeStatus=(text)=>{
         setStatus(text)
     }
@@ -56,9 +58,22 @@ function Employment(props) {
           navigate("/")
         }
     }
+    useEffect(()=>{
+
+      TweenMax.to(
+        containerRef,
+        0.8,
+        {
+          opacity:1,
+          x:-20,
+          ease:Power3.easeOut
+        }
+                  )
+        
+      },[])
   return (
     <div className="employBody" >
-        <div className="employContainer">
+        <div className="employContainer" ref={el=>{containerRef=el}}>
         <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic" className="customToggle" >
         <p

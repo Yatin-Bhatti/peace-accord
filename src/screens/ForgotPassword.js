@@ -1,8 +1,9 @@
-import React, { lazy, useEffect, useState } from 'react'
+import React, { lazy, useEffect, useState,useRef } from 'react'
 import "../styles/ForgotPassword.css"
 import { useNavigate } from 'react-router';
 import { useDispatch,useSelector } from 'react-redux';
 import { hideLoader, showLoader } from '../redux';
+import { TweenMax,Power3 } from 'gsap';
 const ForgotPasswordNotice = lazy(() => import('./ForgotPasswordNotice'));
 function ForgotPassword() {
     const [valid,setValid]=useState(true);
@@ -10,6 +11,20 @@ function ForgotPassword() {
     const[redirect,setRedirect]=useState(false)
     const navigate=useNavigate();
     const dispatch=useDispatch();
+    let containerRef=useRef(null)
+    useEffect(()=>{
+
+      TweenMax.to(
+        containerRef,
+        0.8,
+        {
+          opacity:1,
+          y:-20,
+          ease:Power3.easeOut
+        }
+      )
+        
+      },[])
     const handleChange=(e)=>{
         setEmail(e.target.value);
     }
@@ -69,7 +84,7 @@ function ForgotPassword() {
 
   return (
     <div className="forgotBody">
-        <div className="forgotCont">
+        <div className="forgotCont" ref={el=>{containerRef=el}}>
             <div className="join">
         <input className='forgotInput' spellCheck="false"
           onChange={handleChange} value={email}

@@ -138,7 +138,7 @@ function Review(props) {
             <div className="buttonsContainer">
                 <div className="setOne">
             <button className="rewButton" onClick={()=>handleVote("N")} >No</button>
-            <button className="rewButton" onClick={()=>handleVote("Y")} disabled={reviewCounter===reviewList.results.length-1}>Yes</button>
+            <button className="rewButton" onClick={()=>handleVote("Y")} >Yes</button>
             </div>
             <div className="setTwo" >
             <button className="rewButton" onClick={handleClick} disabled={reviewCounter===reviewList.results.length-1}>Skip</button>

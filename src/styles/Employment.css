@@ -7,9 +7,10 @@
     justify-content: center;
 }
 .employContainer{
-    margin-top: -150px;
+    margin-top: -270px;
     display: flex;
     flex-direction: row;
+    margin-left: 40px;
 }
 .left-aligned-text{
     text-align: left;
@@ -72,6 +73,9 @@
 
 
 @media(max-width:1024px){
+    .employContainer{
+        margin-top: -150px;
+    }
     .customToggle{
         font-size: 28px;
         width:670px;
