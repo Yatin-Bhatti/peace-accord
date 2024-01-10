@@ -48,7 +48,7 @@ const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
         });
         console.log(response)
         if (response.ok) {
-          // First API call was successful, now make the second API call
+          
           const secondApiResponse = await fetch('https://peace-accord-api-0d93a6880046.herokuapp.com/submission/get_submission_list', {
             method: 'GET',
             headers: {
@@ -57,8 +57,14 @@ const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
             },
           }); if (secondApiResponse.ok) {
             const secondApiData = await secondApiResponse.json();
-            // Process the data from the second API call
+            
             dispatch(populateSubmissionList(secondApiData));
+            if(text==="Y"){
+              setVoteStatus(true)
+            }
+            else if(text==="N"){
+              setVoteStatus(false)
+            }
             console.log('Second API data:', secondApiData);
           } else {
             console.log('Error occurred in the second API call:', secondApiResponse.status, secondApiResponse.statusText);
