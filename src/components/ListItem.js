@@ -46,8 +46,15 @@ const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
           },
           body: JSON.stringify(payload),
         });
-        console.log(response)
-        if (response.ok) {
+        const jsonResponse = await response.json();
+        console.log(jsonResponse)
+        if (jsonResponse.Failed === 'user already voted') {
+         
+          alert('User already voted');
+          
+          return;
+        }
+      else if ( jsonResponse.success ==true) {
           
           const secondApiResponse = await fetch('https://peace-accord-api-0d93a6880046.herokuapp.com/submission/get_submission_list', {
             method: 'GET',
