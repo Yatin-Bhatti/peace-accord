@@ -97,6 +97,7 @@ const dispatch=useDispatch();
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken.access}`,
+          
         },
         body: JSON.stringify(payload),
       });
@@ -126,6 +127,7 @@ const dispatch=useDispatch();
         headers: {
           'Content-Type': 'application/json',
           // 'Authorization': `Bearer ${accessToken.access}`,
+          'Authorization': accessToken ? `Bearer ${accessToken.access}` : '',
         },
       });
   
@@ -214,7 +216,7 @@ const dispatch=useDispatch();
       return(
         <div style={{display:"flex",margin:"20px",marginLeft:"0px",justifyContent:"center"}} key={index}>
         <div>{`${index+1}.`}&nbsp;&nbsp;</div>
-        <ListItem key={index} content={item.Submission_text} votes={item.vote_count} ref={listItemRef} id={item.id} accessToken={accessToken}/>
+        <ListItem key={index} content={item.Submission_text} votes={item.vote_count} ref={listItemRef} id={item.id} accessToken={accessToken} voteStatus={item.vote_status}/>
         </div>
       )})}
         </div>

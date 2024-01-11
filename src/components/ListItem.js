@@ -8,16 +8,16 @@ import { jwtDecode } from "jwt-decode";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import "./ListItem.css"
-const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
-    const [voteStatus,setVoteStatus]=useState();
+const ListItem=forwardRef(({content,votes,accessToken,id,voteStatus},ref)=> {
+    // const [voteStatus,setVoteStatus]=useState();
     const dispatch=useDispatch();
     const navigate=useNavigate();
-    useImperativeHandle(ref,()=>({
-      alterStatus(checkboxState){
-       if(checkboxState!==false) setVoteStatus()
-       else setVoteStatus(!checkboxState)
-      }
-    }))
+    // useImperativeHandle(ref,()=>({
+    //   alterStatus(checkboxState){
+    //    if(checkboxState!==false) setVoteStatus()
+    //    else setVoteStatus(!checkboxState)
+    //   }
+    // }))
 
     const handleVote=async(text)=>{
       if(accessToken===null){
@@ -66,12 +66,12 @@ const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
             const secondApiData = await secondApiResponse.json();
             
             dispatch(populateSubmissionList(secondApiData));
-            if(text==="Y"){
-              setVoteStatus(true)
-            }
-            else if(text==="N"){
-              setVoteStatus(false)
-            }
+            // if(text==="Y"){
+            //   setVoteStatus(true)
+            // }
+            // else if(text==="N"){
+            //   setVoteStatus(false)
+            // }
             console.log('Second API data:', secondApiData);
           } else {
             console.log('Error occurred in the second API call:', secondApiResponse.status, secondApiResponse.statusText);
@@ -94,9 +94,9 @@ const ListItem=forwardRef(({content,votes,accessToken,id},ref)=> {
     <p className="listText">{content}</p>
     </div>
     <DropdownButton id="dropdown-item-button"  title={
-          voteStatus === true ? (
+          voteStatus === "Y" ? (
             <FaCheck  color={"black"} size={32}/>
-          ) : voteStatus === false ? (
+          ) : voteStatus === "N" ? (
             <FaTimes color={"black"} size={32} />
           ) : (
             <PiDotsThreeOutlineVerticalFill color={"black"} style={{fontSize:"24px"}}/>

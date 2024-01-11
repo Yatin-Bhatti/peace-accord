@@ -77,7 +77,7 @@ const callSubmissionList=async()=>{
         <div style={{display:"flex",margin:"20px"}} key={index}>
           {index===0?<div className="numbering">{`${index+1}.`}&nbsp;&nbsp;&nbsp;</div>:<div className="numbering">{`${index+1}.`}&nbsp;&nbsp;</div>}
         
-        <ListItem key={index} content={item.Submission_text} votes={item.vote_count} id={item.id} accessToken={accessToken}/>
+        <ListItem key={index} content={item.Submission_text} votes={item.vote_count} id={item.id} accessToken={accessToken} voteStatus={item.vote_status}/>
         </div>
       )})}
       </div>

@@ -112,14 +112,19 @@ function Review(props) {
           body: JSON.stringify(payload),
         });
         console.log(response)
-        if(response.ok){
-          if(reviewCounter<reviewList.results.length-1)
+        const jsonResponse = await response.json();
+        if(jsonResponse.success ==true){
+          if(reviewCounter<reviewList.results.length-1){
           dispatch(reviewCounterIncrement())
         }
         else{
           return
         }
       }
+      else if(jsonResponse.Failed === 'user already voted'){
+        alert("user already voted")
+      }
+    }
       catch(error){
         console.log("Error occured while voting: ",error)
       }
