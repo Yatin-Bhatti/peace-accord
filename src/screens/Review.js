@@ -48,9 +48,12 @@ function Review(props) {
          callReviewSubmission();
         }
          else{
-           navigate("/login")
+           const storedToken = localStorage.getItem("authTokens");
+           if(!storedToken){
+             navigate("/login")
+           }
          }
-         },[])
+         },[accessToken])
          useEffect(()=>{
             if(reviewList!==null){
             console.log(reviewList.results)}

@@ -45,9 +45,12 @@ let containerRef=useRef(null)
      callData();
     }
      else{
-       navigate("/login")
+       const storedToken = localStorage.getItem("authTokens");
+       if(!storedToken){
+         navigate("/login")
+       }
      }
-     },[])
+     },[accessToken])
      useEffect(()=>{
 
       TweenMax.to(

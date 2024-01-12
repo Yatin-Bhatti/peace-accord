@@ -47,9 +47,13 @@ const callSubmissionList=async()=>{
   callSubmissionList();
  }
   else{
-    navigate("/login")
+    const storedToken = localStorage.getItem("authTokens");
+    if(!storedToken){
+      navigate("/login")
+    }
   }
-  },[])
+  },[accessToken])
+  
   useEffect(()=>{
 
     TweenMax.to(
