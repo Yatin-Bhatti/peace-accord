@@ -67,11 +67,11 @@ const callSubmissionList=async()=>{
     )
       
     },[])
-  useEffect(()=>{
-    if(submissionList!==null){
-    console.log(submissionList.results)
-    }
-  },[submissionList])
+  // useEffect(()=>{
+  //   if(submissionList!==null){
+  //   console.log(submissionList.results)
+  //   }
+  // },[submissionList])
   return (
    
     <div className="body">

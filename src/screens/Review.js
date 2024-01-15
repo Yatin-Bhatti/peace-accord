@@ -54,10 +54,10 @@ function Review(props) {
            }
          }
          },[accessToken])
-         useEffect(()=>{
-            if(reviewList!==null){
-            console.log(reviewList.results)}
-         },[reviewList])
+        //  useEffect(()=>{
+        //     if(reviewList!==null){
+        //     console.log(reviewList.results)}
+        //  },[reviewList])
          useEffect(()=>{
 
           TweenMax.to(

@@ -21,7 +21,7 @@ let containerRef=useRef(null)
         },
       });
   
-      
+
       if (response.ok) {
         
         const data = await response.json();
@@ -64,9 +64,9 @@ let containerRef=useRef(null)
       )
         
       },[])
-     useEffect(()=>{
-      console.log(data)
-     },[data])
+    //  useEffect(()=>{
+    //   console.log(data)
+    //  },[data])
   return (
     <div className="dataContainer" >
       {data!==null&&<div className="dataBox" ref={el=>{containerRef=el}} >

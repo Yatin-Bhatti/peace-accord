@@ -13,7 +13,7 @@ function Password({submitPassword,addRegisPassword}) {
     const [showInvalid,setShowInvalid]=useState(false);
  
     const handleFocus=()=>{
-        console.log("called")
+        // console.log("called")
     }
     const handleChange=(e)=>{
         setPassword(e.target.value)

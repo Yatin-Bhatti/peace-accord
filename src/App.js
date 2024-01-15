@@ -50,7 +50,6 @@ function App() {
   const skipConformation=useSelector((state)=>state.registerFlow.skipConformation);
   const [loading,setLoading]=useState(true);
   const token=useSelector((state)=>state.loginProcess.token)
-  console.log(token)
   const location=useLocation();
   const dispatch=useDispatch();
  const navigate=useNavigate();
