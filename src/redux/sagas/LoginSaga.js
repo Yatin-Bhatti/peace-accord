@@ -19,7 +19,7 @@ const navigate=action.navigate;
         body:JSON.stringify(action.payload),
     });
     const data = yield call([response, 'json']);
-    console.log(data)
+    // console.log(data)
 
     const { success, token } = data;
 

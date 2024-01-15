@@ -16,7 +16,7 @@ function NewPassword() {
     useEffect(() => {
       
       const params = new URLSearchParams(window.location.search);
-      console.log(params)
+      // console.log(params)
       
       const tokenValue = params.get('token');
       const uidb64Value = params.get('uidb64');
@@ -29,16 +29,16 @@ function NewPassword() {
         navigate('/login');
       }
     }, []); 
-    useEffect(()=>{
-      console.log(success)
-    },[success])
+    // useEffect(()=>{
+    //   console.log(success)
+    // },[success])
     const callNewPassword=async()=>{
       const payload={
         password:firstField,
         token:token,
         uidb64:uidb64
       }
-      console.log(payload)
+      // console.log(payload)
       try {
         dispatch(showLoader())
          const response = await fetch("https://peace-accord-api-0d93a6880046.herokuapp.com/account/password-reset-complete", {
@@ -49,7 +49,7 @@ function NewPassword() {
            body: JSON.stringify(payload),
          });
    
-         console.log(response)
+        //  console.log(response)
          if (response.ok) {
           startTransition(() => {
             setFirstField("");

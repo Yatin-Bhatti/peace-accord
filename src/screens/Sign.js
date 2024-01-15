@@ -46,7 +46,7 @@ const dispatch=useDispatch();
   
         if (response.ok) {
           const result = await response.json();
-          console.log(result);
+          // console.log(result);
           dispatch(checkFirstBox())
         } else {
           console.error('Failed to make the API call');
@@ -104,7 +104,7 @@ const dispatch=useDispatch();
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         dispatch(checkSecondBox())
       } else {
         console.error('Failed to make the API call');

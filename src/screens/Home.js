@@ -159,7 +159,7 @@ TweenMax.to(
           body: JSON.stringify(payload),
         });
   
-        console.log(response)
+        // console.log(response)
         if (response.ok) {
           
           alert('Submission successful');

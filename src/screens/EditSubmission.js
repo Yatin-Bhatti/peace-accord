@@ -36,9 +36,9 @@ function EditSubmission() {
         input.style.height = "";
         input.style.height = Math.min(input.scrollHeight - 12, 200) + 'px';
     }
-    useEffect(()=>{
-console.log(globalSubmissionText)
-    },[globalSubmissionText])
+//     useEffect(()=>{
+// console.log(globalSubmissionText)
+//     },[globalSubmissionText])
 
     useEffect(()=>{
         dispatch(submitText(text))
@@ -78,7 +78,7 @@ console.log(globalSubmissionText)
               body: JSON.stringify(payload),
             });
       
-            console.log(response)
+            // console.log(response)
             if (response.ok) {
               
               alert('Submission edited successfully');

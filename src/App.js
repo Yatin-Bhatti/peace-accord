@@ -63,8 +63,8 @@ function App() {
       body:JSON.stringify({"refresh":token.refresh})
     })
     let data= await response.json();
-    console.log(data)
-    console.log(response)
+    // console.log(data)
+    // console.log(response)
     if(response.status===200){
    dispatch(updateToken(data.access))
    const authTokens = JSON.parse(localStorage.getItem("authTokens"));

@@ -47,7 +47,7 @@ const ListItem=forwardRef(({content,votes,accessToken,id,voteStatus},ref)=> {
           body: JSON.stringify(payload),
         });
         const jsonResponse = await response.json();
-        console.log(jsonResponse)
+        // console.log(jsonResponse)
         if (jsonResponse.Failed === 'user already voted') {
          
           alert('User already voted');
