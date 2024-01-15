@@ -72,7 +72,7 @@ const ListItem=forwardRef(({content,votes,accessToken,id,voteStatus},ref)=> {
             // else if(text==="N"){
             //   setVoteStatus(false)
             // }
-            console.log('Second API data:', secondApiData);
+            // console.log('Second API data:', secondApiData);
           } else {
             console.log('Error occurred in the second API call:', secondApiResponse.status, secondApiResponse.statusText);
           }
