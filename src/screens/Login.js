@@ -21,7 +21,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     submitPasswordLogin(e.target.value)
   }
   const handleFocus=()=>{
-    console.log("called")
+    
     setValid(true)
   }
   const handlePassFocus=()=>{
@@ -72,7 +72,6 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     // }
 
     const { Login_email: email, Login_password: password } = loginData;
-    console.log(email,password)
     dispatch(loginRequest(email,password,navigate))
   }
   return (
