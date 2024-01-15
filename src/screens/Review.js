@@ -114,7 +114,7 @@ function Review(props) {
           },
           body: JSON.stringify(payload),
         });
-        console.log(response)
+        // console.log(response)
         const jsonResponse = await response.json();
         if(jsonResponse.success ==true){
           if(reviewCounter<reviewList.results.length-1){
