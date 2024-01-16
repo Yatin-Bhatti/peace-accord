@@ -82,6 +82,11 @@ margin-top: 12px;
 .invalidPass{
     margin-top:10px;
 }
+@media(min-width:1024px){
+    .linkStyle.withMargin {
+        margin-top: 30px;
+      }
+}
 @media(max-width:1024px){
     .logCont{
         width:800px;
@@ -168,7 +173,7 @@ margin-top: 12px;
     }
     .passCont{
         width:400px;
-        height:100px;
+        height:145px;
         padding:10px;
         display: flex;
         flex-direction: column;
@@ -185,7 +190,9 @@ margin-top: 12px;
     margin-left: 0px;
     margin-top: 23px;
 }
-
+.linkStyle.withMargin {
+    margin-top: 10px;
+  }
 }
 @media (max-width: 355px) {
     .logCont{
