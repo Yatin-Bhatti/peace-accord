@@ -102,7 +102,7 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
         <button className="submitButtonn" value={email} onClick={handleSubmit}>Login</button>
         {emptyPassword&&<p className="invalidPass">Please enter password</p>}
       </div>
-      <div className="linkStyle" >
+      <div className={`linkStyle ${emptyPassword ? 'withMargin' : ''}`} >
         <a href="/forgotpassword">Forgot Password</a>
       </div>
     </div>

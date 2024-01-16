@@ -7,14 +7,14 @@
     justify-content: center;
 }
 .revContainer{
-    height:600px;
+    height:250px;
     width:900px;
    display: flex;
    flex-direction: row;
 
 }
 .inputDiv{
-    margin-top: 200px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -32,7 +32,11 @@
         align-items: center;
         justify-content: center;
     
-}
+        transition: transform 0.2s ease;
+    }
+    .submitButtton:active{
+        transform: scale(0.96);
+    }
 
 .inputCustom{
     
@@ -40,15 +44,15 @@
     height:59px;
     border-radius: 5px;
     border-width: 0px;
-    padding:1px 20px 10px 20px;
+    padding:1px 20px 1px 20px;
     resize: none;
     outline:none;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     scrollbar-width: none;
 }
-.marginButton{
-margin-top:200px
+.marginButtton{
+margin-top:00px
 }
 .inputCustom::-webkit-scrollbar{
     width:0px
@@ -62,3 +66,218 @@ margin-top:200px
     margin-top: 3px;
     margin-left:-10px
 }
+
+@media(max-width:1024px){
+    .revContainer{
+        padding:10px;
+        width:800px
+    }
+    .inputDiv{
+        width:670px;
+        margin-left:-6px
+    }
+    .inputCustom{
+        font-size: 28px;
+        width:670px;
+        height:45px
+    }
+    .submitButtton{
+        font-size: 28px;
+        height:45px;
+        width:120px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonContainer{
+        width:120px;
+        height:45px;
+    }
+    .wordStyle{
+        width:670px;
+        
+        margin-left: -8px;
+    }
+    .mailBody{
+        width:800px;
+        margin-left:10px
+    }
+}
+@media(max-width:936px){
+    .revContainer{
+        padding:10px;
+        width:700px
+    }
+    .inputDiv{
+        width:550px;
+    }
+    .inputCustom{
+        font-size: 25px;
+        width:550px;
+        height:40px
+    }
+    .submitButtton{
+        font-size: 25px;
+        height:40px;
+        width:110px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonContainer{
+        width:110px;
+        height:40px;
+    }
+    .wordStyle{
+        width:550px;
+        margin-left: -10px;
+    }
+    .mailBody{
+        width:700px;
+        margin-left:10px
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .revContainer {
+      padding: 10px;
+      width:400px;
+      height:auto;
+      margin-top: -100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .inputDiv{
+        width:340px;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .inputCustom {
+      font-size: 18px;
+      width:340px;
+      height: 35px !important;
+    }
+    .submitButtton{
+        font-size: 18px;
+        height:35px;
+        width:90px;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonContainer{
+        width:90px;
+        height:35px;
+    }
+    .marginButton{
+        margin-top: 0px;
+    }
+
+    .mailBody{
+        padding: 10px;
+        width:400px;
+        height:200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+        margin-left:0px
+    }
+    .mailCont{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .buttonMargin{
+        margin-top: 20px;
+    }
+    .wordStyle{
+        width:340px;
+        margin-left: 0px;
+    }
+    .submissionInvalid{
+        color:black;
+        width:340px;
+        display: flex;
+        justify-content: center;
+        margin-left:0px;
+    }
+    .InvalidAlert{
+        margin-left:0px;
+        display: flex;
+        justify-content: center;
+    }
+  }
+  @media (max-width: 355px) {
+    .revContainer {
+        padding: 10px;
+        width:300px;
+        height:auto;
+        margin-top: -80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .inputDiv{
+          width: 270px;
+          margin-top: 0px;
+      }
+      .inputCustom {
+        font-size: 16px;
+        width:270px;
+        height: 32px !important;
+      }
+      .submitButtton{
+          font-size: 16px;
+          height:32px;
+          width:90px;
+          margin-left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .buttonContainer{
+          width:90px;
+          height:32px;
+      }
+      .marginButton{
+          margin-top: 0px;
+      }
+  
+      .mailBody{
+          padding: 10px;
+          width:300px;
+          height:200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 70px;
+      }
+      .mailCont{
+          display: flex;
+          flex-direction: column;
+          
+      }
+      .buttonMargin{
+          margin-top: 20px;
+      }
+      .wordStyle{
+          width:270px;
+          margin-left:-37px;
+          font-size: 12px;
+      }
+      .submissionInvalid{
+        color:black;
+        width:270px;
+        display: flex;
+        justify-content: center;
+    }
+  }

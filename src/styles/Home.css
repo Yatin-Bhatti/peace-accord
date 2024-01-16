@@ -36,9 +36,11 @@
     display: flex;
         align-items: center;
         justify-content: center;
-    
+    transition: transform 0.2s ease;
 }
-
+.submitButtton:active{
+    transform: scale(0.96);
+}
 .inputCustom{
     
     width:700px;

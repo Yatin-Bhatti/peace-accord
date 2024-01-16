@@ -37,6 +37,10 @@
     border-width:0px;
     border-radius: 5px;
     margin-left: 20px;
+    transition: transform 0.2s ease; 
+}
+.birthButton:active{
+    transform: scale(0.96);
 }
 .InvalidAlert{
     margin-left: 20px;

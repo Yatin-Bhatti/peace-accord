@@ -69,6 +69,10 @@
     border-width:0px;
     border-radius: 5px;
     margin-left: 20px;
+    transition: transform 0.2s ease; 
+}
+.employButton:active{
+    transform: scale(0.96);
 }
 
 

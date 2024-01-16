@@ -28,13 +28,13 @@ function EditSubmission() {
             setCharCount(input.value.length);
           }
     input.style.height = "";
-    input.style.height = Math.min(input.scrollHeight - 12, 200) + 'px';
+    input.style.height = Math.min(input.scrollHeight - 3, 200) + 'px';
    
     }
     const handleFocus=(e)=>{
         const input = e.target;
         input.style.height = "";
-        input.style.height = Math.min(input.scrollHeight - 12, 200) + 'px';
+        input.style.height = Math.min(input.scrollHeight - 3, 200) + 'px';
     }
 //     useEffect(()=>{
 // console.log(globalSubmissionText)
@@ -45,13 +45,13 @@ function EditSubmission() {
     },[text,submitText])
 
     useEffect(()=>{
-        if(accessToken===null){
-            navigate("/login")
-        }
-    })
+      const storedToken = localStorage.getItem("authTokens");
+      if(!storedToken){
+        navigate("/login")
+      }
+    },[])
     useEffect(()=>{
         setToken(localStorage.getItem("authTokens")?localStorage.getItem("authTokens"):null)
-         
        },[])
        const handleSubmit = async() => {
         if(token===null){
@@ -118,7 +118,7 @@ function EditSubmission() {
         </div>
       </div>
       <div className="buttonContainer">
-        <button className='submitButtton marginButton decMargin'
+        <button className='submitButtton marginButtton decMargin'
 
           onClick={handleSubmit}
         >Submit</button>
