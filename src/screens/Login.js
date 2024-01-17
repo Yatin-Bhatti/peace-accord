@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useDispatch,useSelector } from 'react-redux';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function Login({ submitEmailLogin, submitPasswordLogin }) {
   const dispatch=useDispatch();
   const loginData=useSelector((state)=>state.login)
@@ -76,6 +77,16 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
   }
   return (
     <div ref={el=>{containerRef=el}}  className="logBody">
+       <Helmet>
+        <title>Log In</title>
+        <meta
+        name="description"
+        content="Users can login to their account."
+        />
+        <meta
+        name="keywords" content="Login, Log, In"
+        />
+      </Helmet>
       <div className="logCont">
         <input className='inputCustomm' spellCheck="false"
         onFocus={handleFocus}

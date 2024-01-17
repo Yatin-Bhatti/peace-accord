@@ -1,6 +1,7 @@
 import React,{useEffect,useRef} from 'react'
 import "../styles/About.css"
 import { TweenMax,Power3,} from 'gsap';
+import { Helmet } from 'react-helmet';
 function About() {
   let containerRef=useRef(null)
   useEffect(()=>{
@@ -18,6 +19,16 @@ function About() {
     },[])
   return (
     <div className="aboutContainer">
+       <Helmet>
+        <title>About</title>
+        <meta
+        name="description"
+        content="Users can see a scrollable About Info."
+        />
+        <meta
+        name="keywords" content="About, Peace, description, information"
+        />
+      </Helmet>
       <div className="textContainer">
         <div className="content" ref={el=>{containerRef=el}} >
       <p>WHO?</p>

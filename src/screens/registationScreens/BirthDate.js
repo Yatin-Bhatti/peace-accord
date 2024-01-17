@@ -4,6 +4,7 @@ import { connect,useSelector } from 'react-redux';
 import { addBirthDate } from '../../redux';
 import { useNavigate } from 'react-router';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function BirthDate(props) {
   const submitData=useSelector((state)=>state.submit);
     const registerData=useSelector((state)=>state.register);
@@ -68,6 +69,16 @@ function BirthDate(props) {
     
   return (
     <div className="birthBody">
+      <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
         <div className="birthContainer" ref={el=>{containerRef=el}}>
             <div style={{display:"flex",flexDirection:"column"}}>
         <input className="birthInput" spellCheck="false" value={birthText} placeholder="BIRTH DATE MM/DD/YYYY"

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useDispatch,useSelector } from 'react-redux';
 import { hideLoader, showLoader } from '../redux';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 const ForgotPasswordNotice = lazy(() => import('./ForgotPasswordNotice'));
 function ForgotPassword() {
     const [valid,setValid]=useState(true);
@@ -84,6 +85,16 @@ function ForgotPassword() {
 
   return (
     <div className="forgotBody">
+      <Helmet>
+        <title>Reset Password</title>
+        <meta
+        name="description"
+        content="User enters email to reset password."
+        />
+        <meta
+        name="keywords" content="Reset, Password"
+        />
+      </Helmet>
         <div className="forgotCont" ref={el=>{containerRef=el}}>
             <div className="join">
         <input className='forgotInput' spellCheck="false"

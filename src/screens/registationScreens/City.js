@@ -5,6 +5,7 @@ import "../../styles/City.css";
 import { connect,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function City(props) {
     const[searchText,setSearchText]=useState("")
     const[showError,setShowError]=useState(true);
@@ -97,6 +98,16 @@ function City(props) {
     }
   return (
     <div className="cityBody">
+      <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
         <div className="cityContainer"  ref={el=>{containerRef=el}}>
         <input className="cityInput" spellCheck="false" value={searchText} placeholder="City you live in..."
          onKeyDown={e =>{ if (e.key === 'Enter') {

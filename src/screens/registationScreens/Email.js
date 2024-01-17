@@ -3,6 +3,7 @@ import "../../styles/Email.css"
 import { useDispatch } from 'react-redux';
 import { addRegisEmail,submitText } from '../../redux';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 function Email() {
   const [email, setEmail] = useState("");
   const [showInvalid,setShowInvalid]=useState(false);
@@ -30,6 +31,16 @@ function Email() {
 
   return (
     <div className="emailBody">
+      <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
       <div className="emailContainer">
       <input className="emailInput" spellCheck="false" placeholder="Enter email" onChange={handleEmail}
        onKeyDown={e =>{ if (e.key === 'Enter') {

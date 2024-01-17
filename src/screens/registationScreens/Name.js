@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import { addFirstName,addLastName } from '../../redux';
 
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function Name(props) {
     const[firstName,setFirstName]=useState("")
     const[lastName,setLastName]=useState("")
@@ -56,6 +57,16 @@ const handleLastChange=(e)=>{
     
     return (
         <div className="nameBody">
+          <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
             <div className={`firstNameCont ${ registerData.first_name !== '' ? 'containerWithMargin' : ''}`} ref={el=>{containerRef=el}}>
             <input className="firstName" spellCheck="false" onFocus={handleFocus} 
              onKeyDown={e =>{ if (e.key === 'Enter') {

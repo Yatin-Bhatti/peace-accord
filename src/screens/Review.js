@@ -5,6 +5,7 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { TweenMax,Power3 } from 'gsap';
 import { jwtDecode } from "jwt-decode";
+import { Helmet } from 'react-helmet';
 function Review(props) {
 
     const dispatch=useDispatch();
@@ -159,6 +160,16 @@ function Review(props) {
 
   return (
     <div className="rewBody">
+      <Helmet>
+        <title>Review</title>
+        <meta
+        name="description"
+        content=" Users can review submissions and vote on them, skip, or edit submission."
+        />
+        <meta
+        name="keywords" content="Review submission, Review"
+        />
+      </Helmet>
         <div className="allCont" ref={el=>{containerRef=el}}>
             <ReviewComponent/>
         

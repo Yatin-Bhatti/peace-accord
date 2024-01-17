@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { hideLoader, populateSubmissionList, showLoader } from '../redux'
 import { useNavigate } from 'react-router-dom'
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet'
 function List() {
 const dispatch=useDispatch();
 const navigate=useNavigate();
@@ -75,6 +76,16 @@ const callSubmissionList=async()=>{
   return (
    
     <div className="body">
+      <Helmet>
+        <title>List</title>
+        <meta
+        name="description"
+        content=" Users can see a scrollable list of submissions."
+        />
+        <meta
+        name="keywords" content="Submissions list, list, Submissions"
+        />
+      </Helmet>
     <div className="listContainerrr" ref={el=>{containerRef=el}}>
     {submissionList!==null&&submissionList.results.map((item,index)=>{
       return(

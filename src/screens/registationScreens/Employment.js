@@ -6,6 +6,7 @@ import { connect,useSelector,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { registerRequest } from '../../redux/register/registerActions';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function Employment(props) {
     const[status,setStatus]=useState("Employed")
     const submitData=useSelector((state)=>state.submit);
@@ -73,6 +74,16 @@ function Employment(props) {
       },[])
   return (
     <div className="employBody" >
+      <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
         <div className="employContainer" ref={el=>{containerRef=el}}>
         <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic" className="customToggle" >

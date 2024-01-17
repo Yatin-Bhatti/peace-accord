@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import { connect, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function Password({submitPassword,addRegisPassword}) {
     const[password,setPassword]=useState("")
     const navigate=useNavigate();
@@ -52,6 +53,16 @@ function Password({submitPassword,addRegisPassword}) {
       },[])
   return (
     <div className="passBody">
+       <Helmet>
+        <title>Register</title>
+        <meta
+        name="description"
+        content="The user needs to enter details in order to register"
+        />
+        <meta
+        name="keywords" content="Registration, details, information, peace, accord, peace accord"
+        />
+      </Helmet>
         <div className="passContainer" ref={el=>{containerRef=el}}>
          
         <input className="passInput" type="password" spellCheck="false" value={password} onFocus={handleFocus} 

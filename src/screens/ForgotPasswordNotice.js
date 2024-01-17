@@ -2,6 +2,7 @@ import React,{useRef,useEffect} from 'react'
 import "../styles/ForgotPasswordNotice.css"
 import { useNavigate } from 'react-router'
 import { Transition } from "react-transition-group";
+import { Helmet } from 'react-helmet';
 
 
 function ForgotPasswordNotice() {
@@ -17,6 +18,16 @@ function ForgotPasswordNotice() {
    
   return (
     <div className="noticeBody">
+      <Helmet>
+        <title>Check Your Email</title>
+        <meta
+        name="description"
+        content="The user is prompted to check email."
+        />
+        <meta
+        name="keywords" content="Check email, email, reset"
+        />
+      </Helmet>
         <div className="noticeCont">
        
         <p className="noticestyle" > 

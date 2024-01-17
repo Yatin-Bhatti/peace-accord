@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { hideLoader, populateData, showLoader } from '../redux';
 import { useNavigate } from 'react-router-dom';
 import { TweenMax,Power3 } from 'gsap';
+import { Helmet } from 'react-helmet';
 function Data() {
   const accessToken=useSelector((state)=>state.loginProcess.token);
   const data=useSelector((state)=>state.data.data)
@@ -69,6 +70,16 @@ let containerRef=useRef(null)
     //  },[data])
   return (
     <div className="dataContainer" >
+      <Helmet>
+        <title>Data</title>
+        <meta
+        name="description"
+        content="Users can see data of the peace accord."
+        />
+        <meta
+        name="keywords" content="Data, Peace, Total"
+        />
+      </Helmet>
       {data!==null&&<div className="dataBox" ref={el=>{containerRef=el}} >
       <p className="singleData1">Total Participants: &nbsp;&nbsp;&nbsp;{data.total_participants}</p>
       <p className="singleData2">Total Submissions: &nbsp;&nbsp;&nbsp;{data.total_submissions}</p>

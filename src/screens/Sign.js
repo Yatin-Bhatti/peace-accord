@@ -7,6 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import { TweenMax,Power3 } from 'gsap';
 import { checkFirstBox, checkSecondBox, hideLoader, populateSubmissionList, showLoader, uncheckFirstBox, uncheckSecondBox } from '../redux';
+import { Helmet } from 'react-helmet';
 function Sign() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const submissionList=useSelector((state)=>state.submissionList.list);
@@ -173,6 +174,16 @@ const dispatch=useDispatch();
 
   return (
     <div className="signBody">
+      <Helmet>
+        <title>Sign</title>
+        <meta
+        name="description"
+        content=" Users can check boxes to define their intent."
+        />
+        <meta
+        name="keywords" content="Sign submission, Sign, Submissions"
+        />
+      </Helmet>
       <div className="signCont"  ref={el=>{containerRef=el}}>
       {submissionList!==null&&<div style={{
         display: "flex",

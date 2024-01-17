@@ -1,3 +1,19 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /review
+Allow: /list
+Allow: /sign
+Allow: /data
+Allow: /about
+Allow: /login
+Allow: /name
+Allow: /city
+Allow: /birthdate
+Allow: /employment
+Allow: /password
+Allow: /loginpassword
+Allow: /forgotpassword
+Allow: /newpassword
+Allow: /editSubmission
+Allow: /email
+
