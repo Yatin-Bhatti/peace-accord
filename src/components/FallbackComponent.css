@@ -1,4 +1,7 @@
 .fallBody{
     background-color: #2ac1f0;
-    height:100%
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
