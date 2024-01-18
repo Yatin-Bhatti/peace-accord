@@ -27,9 +27,13 @@ export const AnimatedIcon = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut" },
-          fill: { duration: 2, ease: [1, 0, 0.8, 1] }
+          default: { duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" },
+          fill: { duration: 1.5, ease: [1, 0, 0.8, 1] },
+          repeat:Infinity,
+          yoyo: Infinity
+        //   repeatType:"loop"
         }}
+      
       />
     </motion.svg>
   </div>

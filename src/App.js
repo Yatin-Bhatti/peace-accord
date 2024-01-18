@@ -29,6 +29,7 @@ import { useEffect, useState, lazy, Suspense, CSSProperties } from "react";
 import { useLocation } from 'react-router-dom';
 import EditSubmission from "./screens/EditSubmission";
 import { UPDATE_TOKEN } from "./redux/loginProcess/loginProcessTypes";
+import { AnimatedIcon } from "./icons/AnimatedIcon";
 const Home = lazy(() => import("./screens/Home"));
 const Data = lazy(() => import("./screens/Data"));
 const List = lazy(() => import("./screens/List"));
@@ -153,6 +154,7 @@ function App() {
             open={isLoaderVisible}
           >
             <CircularProgress color="inherit" />
+         
           </Backdrop>
 
           <Routes>

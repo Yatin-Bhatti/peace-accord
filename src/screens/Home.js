@@ -10,6 +10,7 @@ import "../styles/Home.css"
 import { connect,useDispatch,useSelector } from 'react-redux';
 import { jwtDecode } from "jwt-decode";
 import { TweenMax,Power3 } from 'gsap';
+import { AnimatedIcon } from '../icons/AnimatedIcon';
 function Home(props) {
   const [text, setText] = useState('');
   const [email, setEmail] = useState("");
