@@ -16,7 +16,7 @@ function NewPassword() {
     useEffect(() => {
       
       const params = new URLSearchParams(window.location.search);
-      // console.log(params)
+      console.log(params)
       
       const tokenValue = params.get('token');
       const uidb64Value = params.get('uidb64');

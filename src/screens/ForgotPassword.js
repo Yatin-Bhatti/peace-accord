@@ -34,6 +34,7 @@ function ForgotPassword() {
       const payload={
         email:email,
         redirect_url:"https://peace-accord-f1b931eca321.herokuapp.com/newpassword"
+        // redirect_url:"http://localhost:3000/newpassword"
       }
       try {
         dispatch(showLoader())

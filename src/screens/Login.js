@@ -47,7 +47,8 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
       const params = new URLSearchParams(window.location.search);
       console.log(params)
       
-      
+     const is_redirected_from_email= params.get("is_redirected_from_email")
+     console.log(is_redirected_from_email)
     }, []);
 // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
