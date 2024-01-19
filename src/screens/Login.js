@@ -42,6 +42,13 @@ function Login({ submitEmailLogin, submitPasswordLogin }) {
     )
       
     },[])
+    useEffect(() => {
+      
+      const params = new URLSearchParams(window.location.search);
+      console.log(params)
+      
+      
+    }, []);
 // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // if (email.trim() !== "" && password.trim() !== "" && emailRegex.test(email)) {
     //   submitEmailLogin(email);
